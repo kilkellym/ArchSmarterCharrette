@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(dotnet restore \"C:\\\\Users\\\\micha\\\\source\\\\repos\\\\ReRender\\\\ReRender\\\\ReRender.csproj\" --configfile \"C:\\\\Users\\\\micha\\\\source\\\\repos\\\\ReRender\\\\NuGet.Config\" 2>&1)",
+      "WebSearch",
+      "WebFetch(domain:ai.google.dev)"
+    ]
+  }
+}

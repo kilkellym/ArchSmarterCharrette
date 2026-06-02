@@ -1,0 +1,63 @@
+<Window x:Class="ReRender.UI.SavePresetDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Save Preset"
+        Width="360"
+        Height="160"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize"
+        Background="#1E1E1E">
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0"
+                   Text="Preset name:"
+                   FontSize="12"
+                   Foreground="#A0A0A0"
+                   Margin="0,0,0,6" />
+
+        <TextBox Grid.Row="1"
+                 x:Name="TxtPresetName"
+                 Background="#383838"
+                 Foreground="#E0E0E0"
+                 CaretBrush="#E0E0E0"
+                 BorderBrush="#505050"
+                 BorderThickness="1"
+                 Padding="8,6"
+                 FontSize="12" />
+
+        <StackPanel Grid.Row="3"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right"
+                    Margin="0,12,0,0">
+            <Button Content="Save"
+                    Width="80"
+                    Height="28"
+                    Margin="0,0,8,0"
+                    Background="#4E9FE5"
+                    Foreground="White"
+                    FontSize="12"
+                    BorderThickness="0"
+                    Cursor="Hand"
+                    Click="BtnSave_Click"
+                    IsDefault="True" />
+            <Button Content="Cancel"
+                    Width="80"
+                    Height="28"
+                    Background="#383838"
+                    Foreground="#E0E0E0"
+                    FontSize="12"
+                    BorderThickness="0"
+                    Cursor="Hand"
+                    Click="BtnCancel_Click"
+                    IsCancel="True" />
+        </StackPanel>
+    </Grid>
+
+</Window>
