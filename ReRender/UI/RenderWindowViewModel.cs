@@ -560,12 +560,7 @@ namespace ReRender.UI
         /// </summary>
         public void OpenOutputFolder()
         {
-            // Use the most recent render's folder, or fall back to the source image folder
-            string folder = null;
-            if (GalleryItems.Count > 0)
-                folder = Path.GetDirectoryName(GalleryItems[GalleryItems.Count - 1].FilePath);
-            if (string.IsNullOrEmpty(folder))
-                folder = Path.GetDirectoryName(_exportedImagePath);
+            string folder = _settingsManager.GetOutputFolder();
 
             if (!string.IsNullOrEmpty(folder) && Directory.Exists(folder))
                 Process.Start(new ProcessStartInfo(folder) { UseShellExecute = true });
