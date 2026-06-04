@@ -37,5 +37,26 @@ namespace ReRender.Data
             "9:16",
             "21:9"
         };
+
+        // -- Video generation settings (Google Veo) --
+
+        public string VideoApiKey { get; set; } = "";  // kept for backward compat; unused
+        public string VideoModel { get; set; } = "veo-3.1-generate-preview";
+        public List<string> AvailableVideoModels { get; set; } = new List<string>
+        {
+            "veo-3.1-generate-preview",
+            "veo-3.1-fast-generate-preview",
+            "veo-3.0-generate-001",
+            "veo-2.0-generate-001"
+        };
+        public string VideoResolution { get; set; } = "720p";
+        public List<string> AvailableVideoResolutions { get; set; } = new List<string>
+        {
+            "720p",
+            "1080p",
+            "4K"
+        };
+        public int VideoDuration { get; set; } = 8;
+        public List<int> AvailableVideoDurations { get; set; } = new List<int> { 4, 6, 8 };
     }
 }

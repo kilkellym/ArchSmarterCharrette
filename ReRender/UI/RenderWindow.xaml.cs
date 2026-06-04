@@ -23,6 +23,23 @@ namespace ReRender.UI
             await _viewModel.RenderAsync();
         }
 
+        private void BtnVideo_Click(object sender, RoutedEventArgs e)
+        {
+            string imagePath = _viewModel.LastRenderedImagePath;
+            if (string.IsNullOrEmpty(imagePath))
+                return;
+
+            try
+            {
+                Data.VideoToolLauncher.LaunchWithImage(imagePath);
+            }
+            catch (Data.VideoGenerationException ex)
+            {
+                System.Windows.MessageBox.Show(ex.Message, "ReRender Video",
+                    System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Warning);
+            }
+        }
+
         private void BtnSavePreset_Click(object sender, RoutedEventArgs e)
         {
             // Simple input dialog using a WPF prompt

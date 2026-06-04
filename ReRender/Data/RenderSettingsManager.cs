@@ -245,5 +245,77 @@ namespace ReRender.Data
             _settings.PromptLibraryFile = fileName ?? new RenderSettings().PromptLibraryFile;
             SaveSettings();
         }
+
+        // -- Video generation settings --
+
+        public string GetVideoApiKey()
+        {
+            return _settings.VideoApiKey ?? "";
+        }
+
+        public void SetVideoApiKey(string apiKey)
+        {
+            _settings.VideoApiKey = apiKey ?? "";
+            SaveSettings();
+        }
+
+        public string GetVideoModel()
+        {
+            return _settings.VideoModel ?? new RenderSettings().VideoModel;
+        }
+
+        public void SetVideoModel(string model)
+        {
+            _settings.VideoModel = model ?? new RenderSettings().VideoModel;
+            SaveSettings();
+        }
+
+        public List<string> GetAvailableVideoModels()
+        {
+            List<string> models = _settings.AvailableVideoModels;
+            if (models == null || models.Count == 0)
+                return new RenderSettings().AvailableVideoModels;
+            return models;
+        }
+
+        public List<string> GetAvailableVideoResolutions()
+        {
+            List<string> resolutions = _settings.AvailableVideoResolutions;
+            if (resolutions == null || resolutions.Count == 0)
+                return new RenderSettings().AvailableVideoResolutions;
+            return resolutions;
+        }
+
+        public string GetVideoResolution()
+        {
+            return _settings.VideoResolution ?? new RenderSettings().VideoResolution;
+        }
+
+        public void SetVideoResolution(string resolution)
+        {
+            _settings.VideoResolution = resolution ?? new RenderSettings().VideoResolution;
+            SaveSettings();
+        }
+
+        public List<int> GetAvailableVideoDurations()
+        {
+            List<int> durations = _settings.AvailableVideoDurations;
+            if (durations == null || durations.Count == 0)
+                return new RenderSettings().AvailableVideoDurations;
+            return durations;
+        }
+
+        public int GetVideoDuration()
+        {
+            return _settings.VideoDuration > 0
+                ? _settings.VideoDuration
+                : new RenderSettings().VideoDuration;
+        }
+
+        public void SetVideoDuration(int duration)
+        {
+            _settings.VideoDuration = duration > 0 ? duration : new RenderSettings().VideoDuration;
+            SaveSettings();
+        }
     }
 }

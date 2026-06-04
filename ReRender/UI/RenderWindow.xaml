@@ -594,9 +594,17 @@
                           Height="16" />
                 </Button>
 
-                <!-- Render + Close (right-aligned) -->
+                <!-- Video + Render + Close (right-aligned) -->
                 <StackPanel Grid.Column="2"
                             Orientation="Horizontal">
+                    <Button Content="Video"
+                            Width="80"
+                            Height="30"
+                            Margin="0,0,10,0"
+                            Style="{StaticResource SecondaryButton}"
+                            IsEnabled="{Binding HasRenderedImage}"
+                            ToolTip="Generate a video from the last rendered image"
+                            Click="BtnVideo_Click" />
                     <Button Content="Render"
                             Width="110"
                             Height="30"

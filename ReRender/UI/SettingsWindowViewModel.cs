@@ -31,6 +31,7 @@ namespace ReRender.UI
             // Prompt library folder and file
             _promptLibraryFolder = _settingsManager.GetPromptLibraryFolder();
             RefreshLibraryFiles();
+
         }
 
         // -- API Key --

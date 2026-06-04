@@ -553,7 +553,23 @@ namespace ReRender.UI
         {
             SessionHistory.Clear();
             GalleryItems.Clear();
+            OnPropertyChanged(nameof(HasRenderedImage));
         }
+
+        /// <summary>
+        /// True when at least one image has been rendered in this session.
+        /// Used to enable the Video button.
+        /// </summary>
+        public bool HasRenderedImage => GalleryItems.Count > 0;
+
+        /// <summary>
+        /// Returns the file path of the most recently rendered image,
+        /// or empty string if no renders exist.
+        /// </summary>
+        public string LastRenderedImagePath =>
+            GalleryItems.Count > 0
+                ? GalleryItems[GalleryItems.Count - 1].FilePath
+                : "";
 
         /// <summary>
         /// Opens the folder containing the rendered images in File Explorer.
@@ -739,6 +755,8 @@ namespace ReRender.UI
                 RenderPreset usedSettings = BuildCurrentPreset("");
                 SessionHistory.Add(outputPath, usedSettings);
                 GalleryItems.Add(new GalleryItem(outputPath, usedSettings));
+                OnPropertyChanged(nameof(HasRenderedImage));
+                OnPropertyChanged(nameof(LastRenderedImagePath));
 
                 StatusText = $"Render complete! Saved to:\n{outputPath}";
                 StatusColor = new System.Windows.Media.SolidColorBrush(

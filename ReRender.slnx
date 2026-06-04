@@ -16,4 +16,5 @@
     <BuildType Name="Release R26" />
   </Configurations>
   <Project Path="ReRender/ReRender.csproj" />
+  <Project Path="ReRender.VideoTool/ReRender.VideoTool.csproj" />
 </Solution>

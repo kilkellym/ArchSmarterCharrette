@@ -20,10 +20,12 @@ namespace ReRender
 
             // 3. Create button data instances
             PushButtonData btnRender = RenderCommand.GetButtonData();
+            PushButtonData btnVideo = VideoCommand.GetButtonData();
             PushButtonData btnSettings = SettingsCommand.GetButtonData();
 
             // 4. Create buttons
             PushButton renderButton = panel.AddItem(btnRender) as PushButton;
+            PushButton videoButton = panel.AddItem(btnVideo) as PushButton;
             PushButton settingsButton = panel.AddItem(btnSettings) as PushButton;
 
             return Result.Succeeded;

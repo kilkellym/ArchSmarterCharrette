@@ -48,8 +48,8 @@ namespace ReRender
                 buttonInternalName,
                 buttonTitle,
                 MethodBase.GetCurrentMethod().DeclaringType?.FullName,
-                Properties.Resources.Green_32,
-                Properties.Resources.Green_16,
+                Properties.Resources.Red_32,
+                Properties.Resources.Red_16,
                 "Export the active view and render it with AI using Google Gemini");
 
             return myButtonData.Data;

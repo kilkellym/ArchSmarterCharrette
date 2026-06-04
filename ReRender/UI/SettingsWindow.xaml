@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="ReRender Settings"
         Width="520"
-        Height="530"
+        Height="520"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
         Background="#1E1E1E">
@@ -210,7 +210,7 @@
                     <RowDefinition Height="Auto" />  <!-- 13: Library File combo + Edit -->
                 </Grid.RowDefinitions>
 
-                <TextBlock Grid.Row="0" Text="Gemini API Key"
+                <TextBlock Grid.Row="0" Text="Google API Key"
                            Style="{StaticResource LabelStyle}" />
                 <Grid Grid.Row="1">
                     <Grid.ColumnDefinitions>

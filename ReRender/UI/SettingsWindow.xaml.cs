@@ -7,7 +7,6 @@ namespace ReRender.UI
     {
         private readonly SettingsWindowViewModel _viewModel;
         private bool _suppressApiKeySync;
-
         public SettingsWindow()
         {
             InitializeComponent();
