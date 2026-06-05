@@ -12,13 +12,13 @@ namespace ReRender
             }
             catch (Data.VideoGenerationException ex)
             {
-                TaskDialog.Show("ReRender Video", ex.Message);
+                TaskDialog.Show("Charrette Video", ex.Message);
                 return Result.Failed;
             }
             catch (Exception ex)
             {
                 message = ex.Message;
-                TaskDialog.Show("ReRender Error", ex.Message);
+                TaskDialog.Show("Charrette Error", ex.Message);
                 return Result.Failed;
             }
         }
@@ -26,7 +26,7 @@ namespace ReRender
         internal static PushButtonData GetButtonData()
         {
             string buttonInternalName = "btnVideoCommand";
-            string buttonTitle = "Video";
+            string buttonTitle = "Render\nVideo";
 
             Helpers.ButtonDataClass myButtonData = new Helpers.ButtonDataClass(
                 buttonInternalName,

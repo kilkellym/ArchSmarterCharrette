@@ -15,7 +15,7 @@ namespace ReRender
             catch (Exception ex)
             {
                 message = ex.Message;
-                TaskDialog.Show("ReRender Settings Error", ex.Message);
+                TaskDialog.Show("Charrette Settings Error", ex.Message);
                 return Result.Failed;
             }
         }
@@ -31,7 +31,7 @@ namespace ReRender
                 MethodBase.GetCurrentMethod().DeclaringType?.FullName,
                 Properties.Resources.Red_32,
                 Properties.Resources.Red_16,
-                "Configure ReRender settings (API key and model)");
+                "Configure Charrette settings (API key and model)");
 
             return myButtonData.Data;
         }

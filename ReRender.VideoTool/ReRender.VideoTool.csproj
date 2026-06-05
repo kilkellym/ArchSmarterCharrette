@@ -9,6 +9,10 @@
     <ApplicationIcon />
     <Nullable>disable</Nullable>
     <ImplicitUsings>true</ImplicitUsings>
+    <!-- Always output to bin/Debug regardless of the Revit-specific configuration name
+         (e.g. "Debug R25") so the EXE path is predictable for the add-in launcher -->
+    <OutputPath Condition="$(Configuration.StartsWith('Debug'))">bin\Debug</OutputPath>
+    <OutputPath Condition="$(Configuration.StartsWith('Release'))">bin\Release</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>

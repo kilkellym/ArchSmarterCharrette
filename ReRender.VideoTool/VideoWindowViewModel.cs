@@ -51,9 +51,8 @@ namespace ReRender.VideoTool
                 ? savedDuration
                 : validDurations.Last();
 
-            // Populate video gallery from output folder
+            // Start with empty video gallery (populated as videos are generated)
             VideoGalleryItems = new ObservableCollection<VideoGalleryItem>();
-            LoadVideoGalleryFromOutputFolder();
 
             // Load thumbnail if an image was provided (shortcut/CLI mode)
             if (!string.IsNullOrEmpty(_renderedImagePath) && System.IO.File.Exists(_renderedImagePath))
@@ -72,34 +71,6 @@ namespace ReRender.VideoTool
             }
         }
 
-        // -- Video gallery: scan output folder for generated videos --
-
-        private void LoadVideoGalleryFromOutputFolder()
-        {
-            try
-            {
-                string outputFolder = _settingsManager.GetOutputFolder();
-                if (!Directory.Exists(outputFolder))
-                    return;
-
-                var videoFiles = new DirectoryInfo(outputFolder)
-                    .GetFiles("*.mp4", SearchOption.TopDirectoryOnly)
-                    .OrderByDescending(f => f.LastWriteTime)
-                    .Take(30);
-
-                foreach (FileInfo file in videoFiles)
-                {
-                    VideoGalleryItems.Add(new VideoGalleryItem(file.FullName));
-                }
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine($"Error loading video gallery: {ex.Message}");
-            }
-
-            OnPropertyChanged(nameof(HasVideoGalleryItems));
-        }
-
         // -- Video gallery --
 
         public ObservableCollection<VideoGalleryItem> VideoGalleryItems { get; }
@@ -109,6 +80,32 @@ namespace ReRender.VideoTool
         public void PlayVideo(VideoGalleryItem item)
         {
             item?.Play();
+        }
+
+        /// <summary>
+        /// Deletes a video and its companion thumbnail from disk, and removes it from the gallery.
+        /// </summary>
+        public void DeleteVideoItem(VideoGalleryItem item)
+        {
+            if (item == null)
+                return;
+
+            try
+            {
+                if (System.IO.File.Exists(item.FilePath))
+                    System.IO.File.Delete(item.FilePath);
+
+                string thumbPath = VideoGalleryItem.GetThumbnailPath(item.FilePath);
+                if (System.IO.File.Exists(thumbPath))
+                    System.IO.File.Delete(thumbPath);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error deleting video: {ex.Message}");
+            }
+
+            VideoGalleryItems.Remove(item);
+            OnPropertyChanged(nameof(HasVideoGalleryItems));
         }
 
         private bool _isGalleryOpen;
@@ -426,7 +423,13 @@ namespace ReRender.VideoTool
             };
 
             // Build the prompt
-            string prompt = BuildMotionPrompt();
+            string prompt = BuildVideoPrompt();
+            Debug.WriteLine($"Video prompt: {prompt}");
+
+            // Show the prompt briefly so user can verify settings are applied
+            StatusText = $"Prompt: {prompt.Substring(0, Math.Min(prompt.Length, 120))}...";
+            StatusColor = new SolidColorBrush(Color.FromRgb(0xA0, 0xA0, 0xA0));
+            await Task.Delay(1500, ct);
 
             // Create the GenAI client
             StatusText = "Submitting video request...";
@@ -502,7 +505,7 @@ namespace ReRender.VideoTool
             StatusText = "Downloading video...";
             GeneratedVideo generatedVideo = response.GeneratedVideos[0];
 
-            string outputFolder = _settingsManager.GetOutputFolder();
+            string outputFolder = _settingsManager.GetVideoOutputFolder();
             if (!Directory.Exists(outputFolder))
                 Directory.CreateDirectory(outputFolder);
 
@@ -526,22 +529,24 @@ namespace ReRender.VideoTool
             Process.Start(new ProcessStartInfo(outputPath) { UseShellExecute = true });
         }
 
-        private string BuildMotionPrompt()
+        private string BuildVideoPrompt()
         {
             string motionPhrase = _selectedMotionPreset?.PromptText ?? "";
             string custom = _customMotionText?.Trim() ?? "";
 
-            string combined;
-            if (!string.IsNullOrEmpty(motionPhrase) && !string.IsNullOrEmpty(custom))
-                combined = $"{motionPhrase} {custom}";
-            else if (!string.IsNullOrEmpty(motionPhrase))
-                combined = motionPhrase;
-            else if (!string.IsNullOrEmpty(custom))
-                combined = custom;
-            else
-                combined = "Animate this architectural rendering with gentle ambient motion.";
+            var sb = new System.Text.StringBuilder();
+            sb.Append("Animate this architectural image into a video.");
 
-            return combined;
+            if (!string.IsNullOrEmpty(motionPhrase))
+                sb.Append($" Camera: {motionPhrase}");
+
+            if (!string.IsNullOrEmpty(custom))
+                sb.Append($" {custom}");
+
+            if (string.IsNullOrEmpty(motionPhrase) && string.IsNullOrEmpty(custom))
+                return "Animate this architectural rendering with gentle ambient motion.";
+
+            return sb.ToString();
         }
 
         // -- INotifyPropertyChanged --

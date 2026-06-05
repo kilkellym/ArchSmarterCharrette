@@ -1,7 +1,7 @@
 <Window x:Class="ReRender.UI.RenderWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="ReRender"
+        Title="Charrette Image"
         Width="600"
         Height="780"
         WindowStartupLocation="CenterScreen"
@@ -317,41 +317,41 @@
         <!-- Main content column -->
         <Grid Grid.Column="0" Margin="20">
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />   <!-- 0: Title -->
+                <RowDefinition Height="Auto" />   <!-- 1: Model + settings + gallery toggle -->
+                <RowDefinition Height="*" />      <!-- 2: Scrollable cards -->
+                <RowDefinition Height="Auto" />   <!-- 3: Status -->
+                <RowDefinition Height="Auto" />   <!-- 4: Buttons -->
             </Grid.RowDefinitions>
 
-            <!-- Window title, model label, and gallery toggle -->
-            <Grid Grid.Row="0" Margin="0,0,0,16">
+            <!-- Title -->
+            <TextBlock Grid.Row="0"
+                       Text="Charrette Image"
+                       FontSize="18"
+                       FontWeight="Bold"
+                       Foreground="{StaticResource HeadingColor}"
+                       Margin="0,0,0,10" />
+
+            <!-- Model dropdown, settings, and gallery toggle -->
+            <Grid Grid.Row="1" Margin="0,0,0,12">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
 
-                <TextBlock Grid.Column="0"
-                           Text="ReRender"
-                           FontSize="18"
-                           FontWeight="Bold"
-                           Foreground="{StaticResource HeadingColor}" />
+                <ComboBox Grid.Column="0"
+                          Style="{StaticResource DarkComboBox}"
+                          ItemsSource="{Binding AvailableModels}"
+                          SelectedItem="{Binding SelectedModel}" />
 
-                <TextBlock Grid.Column="1"
-                           Text="{Binding ModelDisplay}"
-                           FontSize="12"
-                           Foreground="{StaticResource TextSecondary}"
-                           VerticalAlignment="Bottom"
-                           Margin="0,0,12,0" />
-
-                <Button Grid.Column="2"
+                <Button Grid.Column="1"
                         Width="40"
                         Height="24"
                         Padding="0,0,0,0"
                         Style="{StaticResource SecondaryButton}"
                         ToolTip="Settings"
-                        Margin="0,0,6,0"
+                        Margin="8,0,6,0"
                         Click="BtnSettings_Click">
                     <Path Data="M 8 4.8 A 3.2 3.2 0 1 1 8 11.2 A 3.2 3.2 0 1 1 8 4.8 M 7.2 0 L 8.8 0 L 9.2 2.2 L 10.8 2.8 L 12.6 1.6 L 13.8 2.8 L 12.6 4.6 L 13.2 6.2 L 15.4 6.6 L 15.4 8.2 L 13.2 8.6 L 12.6 10.2 L 13.8 12 L 12.6 13.2 L 10.8 12 L 9.2 12.6 L 8.8 14.8 L 7.2 14.8 L 6.8 12.6 L 5.2 12 L 3.4 13.2 L 2.2 12 L 3.4 10.2 L 2.8 8.6 L 0.6 8.2 L 0.6 6.6 L 2.8 6.2 L 3.4 4.6 L 2.2 2.8 L 3.4 1.6 L 5.2 2.8 L 6.8 2.2 Z"
                           Fill="{StaticResource TextSecondary}"
@@ -360,7 +360,7 @@
                           Height="14" />
                 </Button>
 
-                <Button Grid.Column="3"
+                <Button Grid.Column="2"
                         Width="40"
                         Height="24"
                         Style="{StaticResource SecondaryButton}"
@@ -375,7 +375,7 @@
             </Grid>
 
             <!-- Scrollable card area -->
-            <ScrollViewer Grid.Row="1"
+            <ScrollViewer Grid.Row="2"
                           VerticalScrollBarVisibility="Auto"
                           HorizontalScrollBarVisibility="Disabled">
                 <StackPanel>
@@ -557,7 +557,7 @@
             </ScrollViewer>
 
             <!-- Status area -->
-            <StackPanel Grid.Row="2">
+            <StackPanel Grid.Row="3">
                 <ProgressBar IsIndeterminate="True"
                              Height="3"
                              Margin="0,0,0,8"
@@ -573,7 +573,7 @@
             </StackPanel>
 
             <!-- Button row -->
-            <Grid Grid.Row="3" Margin="0,12,0,0">
+            <Grid Grid.Row="4" Margin="0,12,0,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="*" />
@@ -636,7 +636,7 @@
                 </Grid.RowDefinitions>
 
                 <TextBlock Grid.Row="0"
-                           Text="Session Gallery"
+                           Text="Render Gallery"
                            FontSize="12"
                            FontWeight="SemiBold"
                            Foreground="{StaticResource HeadingColor}"
@@ -662,6 +662,12 @@
                                                       Click="MenuUseSettings_Click" />
                                             <MenuItem Header="Open in viewer"
                                                       Click="MenuOpenImage_Click" />
+                                            <Separator Background="#505050" />
+                                            <MenuItem Header="Touch up"
+                                                      Click="MenuTouchUp_Click" />
+                                            <Separator Background="#505050" />
+                                            <MenuItem Header="Delete"
+                                                      Click="MenuDeleteImage_Click" />
                                         </ContextMenu>
                                     </Button.ContextMenu>
                                     <Button.Template>

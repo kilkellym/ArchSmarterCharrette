@@ -29,8 +29,13 @@ namespace ReRender.UI
             string libraryPath = Path.Combine(libraryFolder, libraryFile);
             _libraryManager = new PromptLibraryManager(libraryPath);
 
-            // Read-only model display
-            _modelDisplay = _settingsManager.GetModelName();
+            // Model selection
+            AvailableModels = new ObservableCollection<string>(
+                _settingsManager.GetAvailableModels());
+            string savedModel = _settingsManager.GetModelName();
+            _selectedModel = AvailableModels.Contains(savedModel)
+                ? savedModel
+                : AvailableModels.FirstOrDefault();
 
             // Load image size and aspect ratio options
             ImageSizes = new ObservableCollection<string>(
@@ -84,7 +89,7 @@ namespace ReRender.UI
             // Load session gallery from static history
             GalleryItems = new ObservableCollection<GalleryItem>();
             foreach (SessionHistoryEntry entry in SessionHistory.Entries)
-                GalleryItems.Add(new GalleryItem(entry.FilePath, entry.Settings));
+                GalleryItems.Insert(0, new GalleryItem(entry.FilePath, entry.Settings));
 
             _statusText = "Ready. Select a rendering style and click Render.";
             _statusColor = Brushes.Gray;
@@ -102,9 +107,12 @@ namespace ReRender.UI
             // Reload the settings JSON from disk
             _settingsManager.ReloadSettings();
 
-            // Update model display
-            _modelDisplay = _settingsManager.GetModelName();
-            OnPropertyChanged(nameof(ModelDisplay));
+            // Update model selection
+            string currentModel = _settingsManager.GetModelName();
+            if (AvailableModels.Contains(currentModel))
+                SelectedModel = currentModel;
+            else if (AvailableModels.Count > 0)
+                SelectedModel = AvailableModels[0];
 
             // Rebuild prompt library manager (folder or file may have changed)
             string libraryFolder = _settingsManager.GetPromptLibraryFolder();
@@ -168,10 +176,21 @@ namespace ReRender.UI
             return collection.FirstOrDefault();
         }
 
-        // -- Model display (read-only, configured via Settings window) --
+        // -- Model selection --
 
-        private string _modelDisplay;
-        public string ModelDisplay => _modelDisplay;
+        public ObservableCollection<string> AvailableModels { get; }
+
+        private string _selectedModel;
+        public string SelectedModel
+        {
+            get => _selectedModel;
+            set
+            {
+                _selectedModel = value;
+                OnPropertyChanged();
+                _settingsManager.SetModelName(value);
+            }
+        }
 
         // -- Image size and aspect ratio --
 
@@ -533,7 +552,7 @@ namespace ReRender.UI
             set { _customDirections = value; OnPropertyChanged(); }
         }
 
-        // -- Session gallery --
+        // -- Render gallery --
 
         public ObservableCollection<GalleryItem> GalleryItems { get; }
 
@@ -557,7 +576,30 @@ namespace ReRender.UI
         }
 
         /// <summary>
-        /// True when at least one image has been rendered in this session.
+        /// Deletes a rendered image from disk and removes it from the gallery.
+        /// </summary>
+        public void DeleteGalleryItem(GalleryItem item)
+        {
+            if (item == null)
+                return;
+
+            try
+            {
+                if (File.Exists(item.FilePath))
+                    File.Delete(item.FilePath);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error deleting image: {ex.Message}");
+            }
+
+            GalleryItems.Remove(item);
+            OnPropertyChanged(nameof(HasRenderedImage));
+            OnPropertyChanged(nameof(LastRenderedImagePath));
+        }
+
+        /// <summary>
+        /// True when at least one image exists in the gallery.
         /// Used to enable the Video button.
         /// </summary>
         public bool HasRenderedImage => GalleryItems.Count > 0;
@@ -568,7 +610,7 @@ namespace ReRender.UI
         /// </summary>
         public string LastRenderedImagePath =>
             GalleryItems.Count > 0
-                ? GalleryItems[GalleryItems.Count - 1].FilePath
+                ? GalleryItems[0].FilePath
                 : "";
 
         /// <summary>
@@ -741,7 +783,7 @@ namespace ReRender.UI
                 string prompt = PromptBuilder.Build(selectedPhrases, CustomDirections);
 
                 // Call the Gemini API
-                string modelName = _settingsManager.GetModelName();
+                string modelName = SelectedModel;
                 string apiEndpoint = _settingsManager.GetApiEndpoint();
                 var client = new GeminiClient(apiKey, modelName, apiEndpoint);
                 byte[] renderedBytes = await client.RenderAsync(
@@ -754,7 +796,7 @@ namespace ReRender.UI
                 // Add to session gallery with the settings used for this render
                 RenderPreset usedSettings = BuildCurrentPreset("");
                 SessionHistory.Add(outputPath, usedSettings);
-                GalleryItems.Add(new GalleryItem(outputPath, usedSettings));
+                GalleryItems.Insert(0, new GalleryItem(outputPath, usedSettings));
                 OnPropertyChanged(nameof(HasRenderedImage));
                 OnPropertyChanged(nameof(LastRenderedImagePath));
 
@@ -784,18 +826,100 @@ namespace ReRender.UI
             }
         }
 
+        // -- Touch Up --
+
+        /// <summary>
+        /// Sends an existing rendered image back to Gemini with a targeted edit prompt.
+        /// The system prompt constrains the model to only change what the user asked for.
+        /// </summary>
+        public async Task TouchUpAsync(string sourceImagePath, string userPrompt)
+        {
+            string apiKey = _settingsManager.GetGeminiApiKey();
+            if (string.IsNullOrWhiteSpace(apiKey))
+            {
+                StatusText = "Please configure your API key in Settings.";
+                StatusColor = Brushes.Red;
+                return;
+            }
+
+            CanRender = false;
+            IsRendering = true;
+            StatusText = "Sending touch-up request to Gemini...";
+            StatusColor = new System.Windows.Media.SolidColorBrush(
+                System.Windows.Media.Color.FromRgb(0x6E, 0xB3, 0xEB));
+
+            try
+            {
+                byte[] imageBytes = File.ReadAllBytes(sourceImagePath);
+
+                // Build a constrained prompt that tells Gemini to only change what the user specified
+                string prompt =
+                    "You are an architectural image editor. " +
+                    "The user wants to make a specific change to this rendered image. " +
+                    "ONLY modify what the user describes below. " +
+                    "Keep everything else in the image exactly the same — " +
+                    "same composition, same perspective, same lighting, same colors, same style. " +
+                    "Do not add or remove elements unless the user explicitly asks.\n\n" +
+                    $"Requested change: {userPrompt}";
+
+                string modelName = SelectedModel;
+                string apiEndpoint = _settingsManager.GetApiEndpoint();
+                var client = new GeminiClient(apiKey, modelName, apiEndpoint);
+
+                // Use same image size as current setting; aspect ratio matches original
+                byte[] resultBytes = await client.RenderAsync(
+                    imageBytes, "image/png", prompt, SelectedImageSize, "");
+
+                // Save the touched-up image
+                string outputPath = GetOutputPath("TouchUp");
+                File.WriteAllBytes(outputPath, resultBytes);
+
+                // Add to session gallery
+                RenderPreset usedSettings = BuildCurrentPreset("");
+                SessionHistory.Add(outputPath, usedSettings);
+                GalleryItems.Insert(0, new GalleryItem(outputPath, usedSettings));
+                OnPropertyChanged(nameof(HasRenderedImage));
+                OnPropertyChanged(nameof(LastRenderedImagePath));
+
+                StatusText = $"Touch-up complete! Saved to:\n{outputPath}";
+                StatusColor = new System.Windows.Media.SolidColorBrush(
+                    System.Windows.Media.Color.FromRgb(0x6E, 0xC9, 0x6E));
+
+                // Open in default viewer
+                Process.Start(new ProcessStartInfo(outputPath) { UseShellExecute = true });
+            }
+            catch (GeminiException ex)
+            {
+                StatusText = $"Gemini error: {ex.Message}";
+                StatusColor = Brushes.Red;
+                Debug.WriteLine($"Gemini response: {ex.ResponseJson}");
+            }
+            catch (Exception ex)
+            {
+                StatusText = $"Error: {ex.Message}";
+                StatusColor = Brushes.Red;
+                Debug.WriteLine($"Touch-up error: {ex}");
+            }
+            finally
+            {
+                CanRender = true;
+                IsRendering = false;
+            }
+        }
+
         /// <summary>
         /// Builds the output file path using the configured output folder.
         /// Creates the folder if it doesn't exist.
         /// </summary>
-        private string GetOutputPath()
+        private string GetOutputPath(string suffix = null)
         {
             string folder = _settingsManager.GetOutputFolder();
             if (!Directory.Exists(folder))
                 Directory.CreateDirectory(folder);
 
             string timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
-            string fileName = $"ReRender_{timestamp}.png";
+            string tag = string.IsNullOrEmpty(suffix) ? "" : $"_{suffix}";
+            string fileName = $"ReRender{tag}_{timestamp}.png";
             return Path.Combine(folder, fileName);
         }
 

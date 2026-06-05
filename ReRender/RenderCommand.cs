@@ -34,7 +34,7 @@ namespace ReRender
             catch (Exception ex)
             {
                 message = ex.Message;
-                TaskDialog.Show("ReRender Error", ex.Message);
+                TaskDialog.Show("Charrette Error", ex.Message);
                 return Result.Failed;
             }
         }
@@ -42,7 +42,7 @@ namespace ReRender
         internal static PushButtonData GetButtonData()
         {
             string buttonInternalName = "btnRenderCommand";
-            string buttonTitle = "ReRender";
+            string buttonTitle = "Render\nImage";
 
             Helpers.ButtonDataClass myButtonData = new Helpers.ButtonDataClass(
                 buttonInternalName,

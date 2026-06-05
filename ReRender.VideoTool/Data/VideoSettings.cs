@@ -8,6 +8,7 @@ namespace ReRender.VideoTool.Data
     public class VideoSettings
     {
         public string OutputFolder { get; set; } = "";
+        public string VideoOutputFolder { get; set; } = "";
         public string GeminiApiKey { get; set; } = "";
 
         // -- Video generation settings (Google Veo) --

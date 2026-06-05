@@ -16,7 +16,7 @@ namespace ReRender
             }
 
             // 2. Create ribbon panel
-            RibbonPanel panel = Helpers.Utils.CreateRibbonPanel(app, tabName, "ReRender");
+            RibbonPanel panel = Helpers.Utils.CreateRibbonPanel(app, tabName, "Charrette");
 
             // 3. Create button data instances
             PushButtonData btnRender = RenderCommand.GetButtonData();

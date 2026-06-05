@@ -35,7 +35,7 @@ namespace ReRender.UI
             }
             catch (Data.VideoGenerationException ex)
             {
-                System.Windows.MessageBox.Show(ex.Message, "ReRender Video",
+                System.Windows.MessageBox.Show(ex.Message, "Charrette Video",
                     System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Warning);
             }
         }
@@ -137,6 +137,42 @@ namespace ReRender.UI
                 && target.DataContext is Data.GalleryItem item)
             {
                 _viewModel.OpenGalleryImage(item.FilePath);
+            }
+        }
+
+        private async void MenuTouchUp_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is System.Windows.Controls.MenuItem menuItem
+                && menuItem.Parent is System.Windows.Controls.ContextMenu contextMenu
+                && contextMenu.PlacementTarget is System.Windows.FrameworkElement target
+                && target.DataContext is Data.GalleryItem item)
+            {
+                var dialog = new TouchUpDialog(item.FilePath);
+                dialog.Owner = this;
+                if (dialog.ShowDialog() == true)
+                {
+                    string prompt = dialog.TouchUpPrompt.Trim();
+                    if (!string.IsNullOrEmpty(prompt))
+                        await _viewModel.TouchUpAsync(item.FilePath, prompt);
+                }
+            }
+        }
+
+        private void MenuDeleteImage_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is System.Windows.Controls.MenuItem menuItem
+                && menuItem.Parent is System.Windows.Controls.ContextMenu contextMenu
+                && contextMenu.PlacementTarget is System.Windows.FrameworkElement target
+                && target.DataContext is Data.GalleryItem item)
+            {
+                var result = System.Windows.MessageBox.Show(
+                    $"Delete \"{item.FileName}\"?",
+                    "Delete Image",
+                    MessageBoxButton.YesNo,
+                    MessageBoxImage.Question);
+
+                if (result == System.Windows.MessageBoxResult.Yes)
+                    _viewModel.DeleteGalleryItem(item);
             }
         }
 

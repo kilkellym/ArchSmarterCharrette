@@ -112,7 +112,7 @@ namespace ReRender.VideoTool.Data
             }
         }
 
-        // -- Output folder --
+        // -- Output folder (images) --
 
         public static string GetDefaultOutputFolder()
         {
@@ -129,11 +129,46 @@ namespace ReRender.VideoTool.Data
             return folder;
         }
 
+        public void SetOutputFolder(string folder)
+        {
+            _settings.OutputFolder = folder ?? "";
+            SaveSettings();
+        }
+
+        // -- Video output folder --
+
+        public static string GetDefaultVideoOutputFolder()
+        {
+            return Path.Combine(
+                System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyPictures),
+                "ReRender", "Videos");
+        }
+
+        public string GetVideoOutputFolder()
+        {
+            string folder = _settings.VideoOutputFolder;
+            if (string.IsNullOrWhiteSpace(folder))
+                return GetDefaultVideoOutputFolder();
+            return folder;
+        }
+
+        public void SetVideoOutputFolder(string folder)
+        {
+            _settings.VideoOutputFolder = folder ?? "";
+            SaveSettings();
+        }
+
         // -- API key --
 
         public string GetGeminiApiKey()
         {
             return _settings.GeminiApiKey ?? "";
+        }
+
+        public void SetGeminiApiKey(string key)
+        {
+            _settings.GeminiApiKey = key ?? "";
+            SaveSettings();
         }
 
         // -- Video model --
