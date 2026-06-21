@@ -1,8 +1,8 @@
-# ReRender
+# ArchSmarter Charrette
 
 An open-source Revit add-in that turns any Revit view into a photorealistic architectural rendering using Google's Gemini AI. Export your active view, pick a style, and get a rendered image back in seconds — all without leaving Revit.
 
-Your API key stays on your machine. ReRender calls the Gemini REST API directly with no intermediary server.
+Your API key stays on your machine. ReRender calls the Gemini REST API directly, without an intermediary server.
 
 ## Features
 
