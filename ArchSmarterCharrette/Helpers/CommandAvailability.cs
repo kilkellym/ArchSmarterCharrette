@@ -1,4 +1,4 @@
-﻿namespace ReRender.Helpers
+﻿namespace ArchSmarterCharrette.Helpers
 {
     internal class CommandAvailability : IExternalCommandAvailability
     {

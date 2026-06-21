@@ -1,4 +1,4 @@
-<Window x:Class="ReRender.UI.SettingsWindow"
+<Window x:Class="ArchSmarterCharrette.UI.SettingsWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Charrette Settings"

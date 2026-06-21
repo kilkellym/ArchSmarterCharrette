@@ -1,6 +1,6 @@
 using System.Windows.Media.Imaging;
 
-namespace ReRender.Data
+namespace ArchSmarterCharrette.Data
 {
     /// <summary>
     /// Wraps a rendered image file path for display in the session gallery.

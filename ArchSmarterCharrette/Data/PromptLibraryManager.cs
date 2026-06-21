@@ -2,11 +2,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
 
-namespace ReRender.Data
+namespace ArchSmarterCharrette.Data
 {
     public class PromptLibraryManager
     {
-        private static readonly string DefaultFileName = "ReRender_PromptLibrary.json";
+        private static readonly string DefaultFileName = "ArchSmarterCharrette_PromptLibrary.json";
         private readonly string _filePath;
         private List<PromptPhrase> _phrases;
         private List<PromptTheme> _themes;

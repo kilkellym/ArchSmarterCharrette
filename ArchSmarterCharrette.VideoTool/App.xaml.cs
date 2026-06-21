@@ -1,6 +1,6 @@
 using System.Windows;
 
-namespace ReRender.VideoTool
+namespace ArchSmarterCharrette.VideoTool
 {
     public partial class App : Application
     {

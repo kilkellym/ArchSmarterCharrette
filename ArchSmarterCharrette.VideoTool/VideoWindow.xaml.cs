@@ -1,7 +1,7 @@
 using System.Windows;
-using ReRender.VideoTool.Data;
+using ArchSmarterCharrette.VideoTool.Data;
 
-namespace ReRender.VideoTool
+namespace ArchSmarterCharrette.VideoTool
 {
     public partial class VideoWindow : Window
     {

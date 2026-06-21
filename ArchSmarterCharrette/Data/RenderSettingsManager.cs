@@ -1,10 +1,10 @@
 using System.Text.Json;
 
-namespace ReRender.Data
+namespace ArchSmarterCharrette.Data
 {
     public class RenderSettingsManager
     {
-        private static readonly string SettingsFileName = "ReRender.json";
+        private static readonly string SettingsFileName = "ArchSmarterCharrette.json";
         private readonly string _filePath;
         private RenderSettings _settings;
 
@@ -24,7 +24,7 @@ namespace ReRender.Data
         {
             string folderPath = Path.Combine(
                 Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
-                "ArchSmarter", "ReRender");
+                "ArchSmarter", "ArchSmarterCharrette");
             return Path.Combine(folderPath, SettingsFileName);
         }
 
@@ -104,7 +104,7 @@ namespace ReRender.Data
         {
             return Path.Combine(
                 Environment.GetFolderPath(Environment.SpecialFolder.MyPictures),
-                "ReRender");
+                "ArchSmarterCharrette");
         }
 
         public string GetOutputFolder()
@@ -215,7 +215,7 @@ namespace ReRender.Data
         {
             return Path.Combine(
                 Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
-                "ArchSmarter", "ReRender", "PromptLibraries");
+                "ArchSmarter", "ArchSmarterCharrette", "PromptLibraries");
         }
 
         public string GetPromptLibraryFolder()

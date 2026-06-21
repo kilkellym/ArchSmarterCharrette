@@ -1,4 +1,4 @@
-<Window x:Class="ReRender.UI.TouchUpDialog"
+<Window x:Class="ArchSmarterCharrette.UI.TouchUpDialog"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Touch Up Image"

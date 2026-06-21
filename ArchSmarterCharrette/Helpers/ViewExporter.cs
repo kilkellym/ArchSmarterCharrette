@@ -1,4 +1,4 @@
-namespace ReRender.Helpers
+namespace ArchSmarterCharrette.Helpers
 {
     /// <summary>
     /// Exports the active Revit view to a temporary PNG file on disk.
@@ -14,7 +14,7 @@ namespace ReRender.Helpers
         public static string ExportViewToTempPng(Document doc, View view)
         {
             string tempFolder = Path.GetTempPath();
-            string baseName = $"ReRender_{view.Id.Value}";
+            string baseName = $"ArchSmarterCharrette_{view.Id.Value}";
 
             var options = new ImageExportOptions
             {

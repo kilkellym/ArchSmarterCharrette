@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace ReRender.Data
+namespace ArchSmarterCharrette.Data
 {
     /// <summary>
     /// Assembles the text prompt sent to Gemini alongside the exported view image.

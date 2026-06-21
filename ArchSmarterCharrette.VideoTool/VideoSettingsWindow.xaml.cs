@@ -2,9 +2,9 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Controls;
-using ReRender.VideoTool.Data;
+using ArchSmarterCharrette.VideoTool.Data;
 
-namespace ReRender.VideoTool
+namespace ArchSmarterCharrette.VideoTool
 {
     public partial class VideoSettingsWindow : Window
     {

@@ -2,7 +2,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Windows.Media.Imaging;
 
-namespace ReRender.VideoTool.Data
+namespace ArchSmarterCharrette.VideoTool.Data
 {
     /// <summary>
     /// Wraps a generated video file for display in the video gallery sidebar.
@@ -55,7 +55,7 @@ namespace ReRender.VideoTool.Data
 
         /// <summary>
         /// Gets the companion thumbnail path for a video file.
-        /// e.g., ReRender_Video_20250604_123456.mp4 → ReRender_Video_20250604_123456.thumb.png
+        /// e.g., ArchSmarterCharrette_Video_20250604_123456.mp4 → ArchSmarterCharrette_Video_20250604_123456.thumb.png
         /// </summary>
         public static string GetThumbnailPath(string videoPath)
         {

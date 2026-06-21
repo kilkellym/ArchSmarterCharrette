@@ -1,7 +1,7 @@
 using System.Windows;
 using System.Windows.Media.Imaging;
 
-namespace ReRender.UI
+namespace ArchSmarterCharrette.UI
 {
     public partial class TouchUpDialog : Window
     {

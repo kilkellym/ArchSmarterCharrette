@@ -2,11 +2,11 @@ using System.Diagnostics;
 using System.IO;
 using System.Text.Json;
 
-namespace ReRender.VideoTool.Data
+namespace ArchSmarterCharrette.VideoTool.Data
 {
     /// <summary>
-    /// Reads and writes video settings from the shared ReRender.json file.
-    /// The settings file lives at %AppData%\ArchSmarter\ReRender\ReRender.json
+    /// Reads and writes video settings from the shared ArchSmarterCharrette.json file.
+    /// The settings file lives at %AppData%\ArchSmarter\ArchSmarterCharrette\ArchSmarterCharrette.json
     /// and is shared with the Revit add-in.
     ///
     /// Because the JSON contains fields for both render and video settings,
@@ -14,7 +14,7 @@ namespace ReRender.VideoTool.Data
     /// </summary>
     public class VideoSettingsManager
     {
-        private static readonly string SettingsFileName = "ReRender.json";
+        private static readonly string SettingsFileName = "ArchSmarterCharrette.json";
         private readonly string _filePath;
         private VideoSettings _settings;
 
@@ -40,7 +40,7 @@ namespace ReRender.VideoTool.Data
         {
             string folderPath = Path.Combine(
                 System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData),
-                "ArchSmarter", "ReRender");
+                "ArchSmarter", "ArchSmarterCharrette");
             return Path.Combine(folderPath, SettingsFileName);
         }
 
@@ -118,7 +118,7 @@ namespace ReRender.VideoTool.Data
         {
             return Path.Combine(
                 System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyPictures),
-                "ReRender");
+                "ArchSmarterCharrette");
         }
 
         public string GetOutputFolder()
@@ -141,7 +141,7 @@ namespace ReRender.VideoTool.Data
         {
             return Path.Combine(
                 System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyPictures),
-                "ReRender", "Videos");
+                "ArchSmarterCharrette", "Videos");
         }
 
         public string GetVideoOutputFolder()

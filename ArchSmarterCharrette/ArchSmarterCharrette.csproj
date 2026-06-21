@@ -100,9 +100,9 @@
 echo *** Configuration: $(Configuration)
 echo *** Copying results to $(RevitVersion)
 echo *** $(MSBuildProjectDirectory)
-if not exist "$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)\ReRender" mkdir "$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)\ReRender"
+if not exist "$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)\ArchSmarterCharrette" mkdir "$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)\ArchSmarterCharrette"
 copy "$(MSBuildProjectDirectory)\*.addin" "$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)"
-copy "$(TargetDir)*.dll" "$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)\ReRender"
+copy "$(TargetDir)*.dll" "$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)\ArchSmarterCharrette"
 	</PostBuildEvent>
 	<RunAnalyzersDuringBuild>False</RunAnalyzersDuringBuild>
 	<RunAnalyzersDuringLiveAnalysis>False</RunAnalyzersDuringLiveAnalysis>

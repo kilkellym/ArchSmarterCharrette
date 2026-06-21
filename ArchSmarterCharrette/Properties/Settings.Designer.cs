@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ReRender.Properties
+namespace ArchSmarterCharrette.Properties
 {
 
 

@@ -1,4 +1,4 @@
-namespace ReRender.Data
+namespace ArchSmarterCharrette.Data
 {
     /// <summary>
     /// Represents an error from the video generation process.

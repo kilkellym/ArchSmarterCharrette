@@ -1,7 +1,7 @@
 using System.Windows;
 using System.Windows.Media;
 
-namespace ReRender.UI
+namespace ArchSmarterCharrette.UI
 {
     public partial class RenderWindow : Window
     {
@@ -16,6 +16,15 @@ namespace ReRender.UI
             InitializeComponent();
             _viewModel = new RenderWindowViewModel(exportedImagePath);
             DataContext = _viewModel;
+        }
+
+        /// <summary>
+        /// Updates the source image with a fresh export from Revit.
+        /// Called when the user clicks the ribbon button while this window is already open.
+        /// </summary>
+        public void UpdateSourceImage(string exportedImagePath)
+        {
+            _viewModel.UpdateExportedImage(exportedImagePath);
         }
 
         private async void BtnRender_Click(object sender, RoutedEventArgs e)

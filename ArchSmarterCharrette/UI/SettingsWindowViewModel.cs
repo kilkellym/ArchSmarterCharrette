@@ -3,9 +3,9 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using ReRender.Data;
+using ArchSmarterCharrette.Data;
 
-namespace ReRender.UI
+namespace ArchSmarterCharrette.UI
 {
     public class SettingsWindowViewModel : INotifyPropertyChanged
     {
@@ -145,7 +145,7 @@ namespace ReRender.UI
             if (AvailableLibraryFiles.Count == 0)
             {
                 // Create the default file so there's always something to select
-                string defaultPath = Path.Combine(folder, "ReRender_PromptLibrary.json");
+                string defaultPath = Path.Combine(folder, "ArchSmarterCharrette_PromptLibrary.json");
                 var tempManager = new PromptLibraryManager(defaultPath);
                 AvailableLibraryFiles.Add(Path.GetFileName(defaultPath));
             }

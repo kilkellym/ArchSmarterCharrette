@@ -1,4 +1,4 @@
-﻿namespace ReRender.Helpers
+﻿namespace ArchSmarterCharrette.Helpers
 {
     internal static class Utils
     {

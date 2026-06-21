@@ -1,16 +1,16 @@
 using System.Collections.Generic;
 using System.Text.Json;
 
-namespace ReRender.Data
+namespace ArchSmarterCharrette.Data
 {
     /// <summary>
-    /// Loads and saves render presets to a JSON file in the ReRender config folder.
+    /// Loads and saves render presets to a JSON file in the ArchSmarterCharrette config folder.
     /// Each preset captures the full render configuration: category selections,
     /// custom directions, image size, and aspect ratio.
     /// </summary>
     public class RenderPresetManager
     {
-        private static readonly string PresetsFileName = "ReRender_Presets.json";
+        private static readonly string PresetsFileName = "ArchSmarterCharrette_Presets.json";
         private readonly string _filePath;
         private List<RenderPreset> _presets;
 
@@ -30,7 +30,7 @@ namespace ReRender.Data
         {
             string folderPath = Path.Combine(
                 Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
-                "ArchSmarter", "ReRender");
+                "ArchSmarter", "ArchSmarterCharrette");
             return Path.Combine(folderPath, PresetsFileName);
         }
 

@@ -1,4 +1,4 @@
-namespace ReRender
+namespace ArchSmarterCharrette
 {
     internal class App : IExternalApplication
     {

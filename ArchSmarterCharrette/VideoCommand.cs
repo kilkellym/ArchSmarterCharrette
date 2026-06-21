@@ -1,4 +1,4 @@
-namespace ReRender
+namespace ArchSmarterCharrette
 {
     [Transaction(TransactionMode.Manual)]
     public class VideoCommand : IExternalCommand

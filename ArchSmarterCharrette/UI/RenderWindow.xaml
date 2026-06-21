@@ -1,4 +1,4 @@
-<Window x:Class="ReRender.UI.RenderWindow"
+<Window x:Class="ArchSmarterCharrette.UI.RenderWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Charrette Image"
@@ -327,7 +327,7 @@
             <!-- Title -->
             <TextBlock Grid.Row="0"
                        Text="Charrette Image"
-                       FontSize="18"
+                       FontSize="22"
                        FontWeight="Bold"
                        Foreground="{StaticResource HeadingColor}"
                        Margin="0,0,0,10" />
@@ -335,17 +335,25 @@
             <!-- Model dropdown, settings, and gallery toggle -->
             <Grid Grid.Row="1" Margin="0,0,0,12">
                 <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="8" />
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
 
-                <ComboBox Grid.Column="0"
+                <TextBlock Grid.Column="0"
+                           Text="Current Model"
+                           FontSize="12"
+                           Foreground="{StaticResource TextSecondary}"
+                           VerticalAlignment="Center" />
+
+                <ComboBox Grid.Column="2"
                           Style="{StaticResource DarkComboBox}"
                           ItemsSource="{Binding AvailableModels}"
                           SelectedItem="{Binding SelectedModel}" />
 
-                <Button Grid.Column="1"
+                <Button Grid.Column="3"
                         Width="40"
                         Height="24"
                         Padding="0,0,0,0"
@@ -360,7 +368,7 @@
                           Height="14" />
                 </Button>
 
-                <Button Grid.Column="2"
+                <Button Grid.Column="4"
                         Width="40"
                         Height="24"
                         Style="{StaticResource SecondaryButton}"
@@ -385,6 +393,14 @@
                               Header="Rendering Style"
                               IsExpanded="True">
                         <StackPanel>
+                            <!-- Prompt Library selector -->
+                            <StackPanel Margin="0,0,0,10">
+                                <TextBlock Text="Prompt Library" Style="{StaticResource LabelStyle}" />
+                                <ComboBox Style="{StaticResource DarkComboBox}"
+                                          ItemsSource="{Binding AvailableLibraryFiles}"
+                                          SelectedItem="{Binding SelectedLibraryFile}" />
+                            </StackPanel>
+
                             <!-- Theme selector (hidden if no themes in library) -->
                             <StackPanel Visibility="{Binding HasThemes, Converter={StaticResource BoolToVis}}"
                                         Margin="0,0,0,10">

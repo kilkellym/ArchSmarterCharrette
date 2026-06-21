@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace ReRender.Data
+namespace ArchSmarterCharrette.Data
 {
     /// <summary>
     /// The object-shape prompt library file: contains Items (the phrase list)

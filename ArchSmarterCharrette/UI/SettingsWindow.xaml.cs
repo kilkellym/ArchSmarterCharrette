@@ -1,7 +1,7 @@
 using System.Windows;
 using System.Windows.Controls;
 
-namespace ReRender.UI
+namespace ArchSmarterCharrette.UI
 {
     public partial class SettingsWindow : Window
     {

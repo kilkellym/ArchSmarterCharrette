@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace ReRender.Data
+namespace ArchSmarterCharrette.Data
 {
     /// <summary>
     /// A named preset that selects one item per prompt category.

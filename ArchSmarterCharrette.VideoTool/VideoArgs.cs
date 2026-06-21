@@ -1,4 +1,4 @@
-namespace ReRender.VideoTool
+namespace ArchSmarterCharrette.VideoTool
 {
     /// <summary>
     /// Parses command-line arguments for pre-filling the video window.

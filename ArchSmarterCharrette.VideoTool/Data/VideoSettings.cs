@@ -1,7 +1,7 @@
-namespace ReRender.VideoTool.Data
+namespace ArchSmarterCharrette.VideoTool.Data
 {
     /// <summary>
-    /// Mirrors the video-related fields from the shared ReRender.json settings file.
+    /// Mirrors the video-related fields from the shared ArchSmarterCharrette.json settings file.
     /// This class is deserialized from the same file that the Revit add-in uses,
     /// so property names must match exactly.
     /// </summary>

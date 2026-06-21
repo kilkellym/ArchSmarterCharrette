@@ -1,4 +1,4 @@
-<Window x:Class="ReRender.UI.PromptPreviewWindow"
+<Window x:Class="ArchSmarterCharrette.UI.PromptPreviewWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Prompt Preview"

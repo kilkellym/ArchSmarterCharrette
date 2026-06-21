@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace ReRender.Data
+namespace ArchSmarterCharrette.Data
 {
     /// <summary>
     /// A saved render configuration: category selections, custom directions,

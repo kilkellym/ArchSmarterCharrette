@@ -1,4 +1,4 @@
-namespace ReRender.VideoTool.Data
+namespace ArchSmarterCharrette.VideoTool.Data
 {
     /// <summary>
     /// A mood/style preset that maps a user-facing display name

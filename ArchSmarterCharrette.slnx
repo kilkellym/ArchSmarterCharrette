@@ -16,8 +16,8 @@
     <BuildType Name="Release R25" />
     <BuildType Name="Release R26" />
   </Configurations>
-  <Project Path="ReRender.VideoTool/ReRender.VideoTool.csproj" />
-  <Project Path="ReRender/ReRender.csproj">
+  <Project Path="ArchSmarterCharrette.VideoTool/ArchSmarterCharrette.VideoTool.csproj" />
+  <Project Path="ArchSmarterCharrette/ArchSmarterCharrette.csproj">
     <Build Solution="Debug|*" Project="false" />
   </Project>
 </Solution>

@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace ReRender.Data
+namespace ArchSmarterCharrette.Data
 {
     /// <summary>
     /// Holds the list of rendered image paths for the current Revit session.

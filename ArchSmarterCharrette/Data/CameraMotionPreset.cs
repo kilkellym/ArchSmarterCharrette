@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace ReRender.Data
+namespace ArchSmarterCharrette.Data
 {
     /// <summary>
     /// A camera motion preset that maps a user-facing display name

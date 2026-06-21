@@ -7,9 +7,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using Google.GenAI;
 using Google.GenAI.Types;
-using ReRender.VideoTool.Data;
+using ArchSmarterCharrette.VideoTool.Data;
 
-namespace ReRender.VideoTool
+namespace ArchSmarterCharrette.VideoTool
 {
     public class VideoWindowViewModel : INotifyPropertyChanged
     {
@@ -361,7 +361,7 @@ namespace ReRender.VideoTool
             string apiKey = _settingsManager.GetGeminiApiKey();
             if (string.IsNullOrWhiteSpace(apiKey))
             {
-                StatusText = "API key is not set. Add your Google API key to ReRender.json in\n" +
+                StatusText = "API key is not set. Add your Google API key to ArchSmarterCharrette.json in\n" +
                              VideoSettingsManager.GetSettingsFilePath();
                 StatusColor = Brushes.Red;
                 return;
@@ -510,7 +510,7 @@ namespace ReRender.VideoTool
                 Directory.CreateDirectory(outputFolder);
 
             string timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
-            string outputPath = Path.Combine(outputFolder, $"ReRender_Video_{timestamp}.mp4");
+            string outputPath = Path.Combine(outputFolder, $"ArchSmarterCharrette_Video_{timestamp}.mp4");
 
             await client.Files.DownloadToFileAsync(generatedVideo, outputPath, cancellationToken: ct);
 

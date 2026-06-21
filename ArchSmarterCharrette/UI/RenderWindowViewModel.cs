@@ -4,15 +4,15 @@ using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
-using ReRender.Data;
+using ArchSmarterCharrette.Data;
 using Brush = System.Windows.Media.Brush;
 using Brushes = System.Windows.Media.Brushes;
 
-namespace ReRender.UI
+namespace ArchSmarterCharrette.UI
 {
     public class RenderWindowViewModel : INotifyPropertyChanged
     {
-        private readonly string _exportedImagePath;
+        private string _exportedImagePath;
         private readonly RenderSettingsManager _settingsManager;
         private PromptLibraryManager _libraryManager;
         private readonly RenderPresetManager _presetManager;
@@ -23,10 +23,17 @@ namespace ReRender.UI
             _settingsManager = new RenderSettingsManager();
             _presetManager = new RenderPresetManager();
 
-            // Build prompt library path from settings
-            string libraryFolder = _settingsManager.GetPromptLibraryFolder();
-            string libraryFile = _settingsManager.GetPromptLibraryFile();
-            string libraryPath = Path.Combine(libraryFolder, libraryFile);
+            // Build prompt library file list and select the saved one
+            _libraryFolder = _settingsManager.GetPromptLibraryFolder();
+            AvailableLibraryFiles = new ObservableCollection<string>();
+            RefreshLibraryFileList();
+
+            string savedFile = _settingsManager.GetPromptLibraryFile();
+            _selectedLibraryFile = AvailableLibraryFiles.Contains(savedFile)
+                ? savedFile
+                : AvailableLibraryFiles.FirstOrDefault();
+
+            string libraryPath = Path.Combine(_libraryFolder, _selectedLibraryFile ?? "");
             _libraryManager = new PromptLibraryManager(libraryPath);
 
             // Model selection
@@ -96,6 +103,20 @@ namespace ReRender.UI
             _canRender = true;
         }
 
+        // -- Update source image --
+
+        /// <summary>
+        /// Replaces the exported view image with a fresh export from Revit.
+        /// Called when the user clicks the ribbon button while the window is already open.
+        /// </summary>
+        public void UpdateExportedImage(string newExportedImagePath)
+        {
+            _exportedImagePath = newExportedImagePath;
+            StatusText = "View updated. Ready to render.";
+            StatusColor = new System.Windows.Media.SolidColorBrush(
+                System.Windows.Media.Color.FromRgb(0x6E, 0xB3, 0xEB));
+        }
+
         // -- Refresh after settings change --
 
         /// <summary>
@@ -114,45 +135,15 @@ namespace ReRender.UI
             else if (AvailableModels.Count > 0)
                 SelectedModel = AvailableModels[0];
 
-            // Rebuild prompt library manager (folder or file may have changed)
-            string libraryFolder = _settingsManager.GetPromptLibraryFolder();
-            string libraryFile = _settingsManager.GetPromptLibraryFile();
-            string libraryPath = Path.Combine(libraryFolder, libraryFile);
-            _libraryManager = new PromptLibraryManager(libraryPath);
+            // Refresh library folder and file list (may have changed in Settings)
+            _libraryFolder = _settingsManager.GetPromptLibraryFolder();
+            RefreshLibraryFileList();
 
-            // Remember current selections so we can try to restore them
-            string prevStyle = _selectedStyle?.DisplayName;
-            string prevLighting = _selectedLighting?.DisplayName;
-            string prevMaterial = _selectedMaterial?.DisplayName;
-            string prevBackground = _selectedBackground?.DisplayName;
-            string prevEntourage = _selectedEntourage?.DisplayName;
-            string prevWeather = _selectedWeather?.DisplayName;
-
-            // Repopulate phrase collections
-            RepopulateCollection(StylePhrases, _libraryManager.GetPhrasesForCategory("Style"));
-            RepopulateCollection(LightingPhrases, _libraryManager.GetPhrasesForCategory("Lighting"));
-            RepopulateCollection(MaterialPhrases, _libraryManager.GetPhrasesForCategory("Material"));
-            RepopulateCollection(BackgroundPhrases, _libraryManager.GetPhrasesForCategory("Background"));
-            RepopulateCollection(EntouragePhrases, _libraryManager.GetPhrasesForCategory("Entourage"));
-            RepopulateCollection(WeatherPhrases, _libraryManager.GetPhrasesForCategory("Weather"));
-
-            // Restore selections (match by DisplayName) or fall back to first
-            SelectedStyle = FindByName(StylePhrases, prevStyle);
-            SelectedLighting = FindByName(LightingPhrases, prevLighting);
-            SelectedMaterial = FindByName(MaterialPhrases, prevMaterial);
-            SelectedBackground = FindByName(BackgroundPhrases, prevBackground);
-            SelectedEntourage = FindByName(EntouragePhrases, prevEntourage);
-            SelectedWeather = FindByName(WeatherPhrases, prevWeather);
-
-            // Repopulate themes
-            _themes = _libraryManager.GetThemes();
-            ThemeNames.Clear();
-            ThemeNames.Add(NoThemeLabel);
-            foreach (PromptTheme theme in _themes)
-                ThemeNames.Add(theme.Name);
-            _hasThemes = _themes.Count > 0;
-            OnPropertyChanged(nameof(HasThemes));
-            SelectedThemeName = NoThemeLabel;
+            string savedFile = _settingsManager.GetPromptLibraryFile();
+            if (AvailableLibraryFiles.Contains(savedFile))
+                SelectedLibraryFile = savedFile;
+            else if (AvailableLibraryFiles.Count > 0)
+                SelectedLibraryFile = AvailableLibraryFiles[0];
         }
 
         private static void RepopulateCollection(ObservableCollection<PromptPhrase> collection,
@@ -190,6 +181,96 @@ namespace ReRender.UI
                 OnPropertyChanged();
                 _settingsManager.SetModelName(value);
             }
+        }
+
+        // -- Prompt library selection --
+
+        private string _libraryFolder;
+        public ObservableCollection<string> AvailableLibraryFiles { get; }
+
+        private string _selectedLibraryFile;
+        public string SelectedLibraryFile
+        {
+            get => _selectedLibraryFile;
+            set
+            {
+                if (_selectedLibraryFile == value) return;
+                _selectedLibraryFile = value;
+                OnPropertyChanged();
+                if (value != null)
+                {
+                    _settingsManager.SetPromptLibraryFile(value);
+                    ReloadPromptLibrary();
+                }
+            }
+        }
+
+        private void RefreshLibraryFileList()
+        {
+            AvailableLibraryFiles.Clear();
+
+            if (Directory.Exists(_libraryFolder))
+            {
+                List<string> files = Directory.GetFiles(_libraryFolder, "*.json")
+                    .Select(Path.GetFileName)
+                    .OrderBy(f => f)
+                    .ToList();
+
+                foreach (string file in files)
+                    AvailableLibraryFiles.Add(file);
+            }
+
+            // Ensure at least the default file exists
+            if (AvailableLibraryFiles.Count == 0)
+            {
+                string defaultPath = Path.Combine(_libraryFolder, "ArchSmarterCharrette_PromptLibrary.json");
+                var tempManager = new PromptLibraryManager(defaultPath);
+                AvailableLibraryFiles.Add(Path.GetFileName(defaultPath));
+            }
+        }
+
+        /// <summary>
+        /// Reloads all phrase dropdowns and themes from the currently selected library file.
+        /// Preserves user selections where possible.
+        /// </summary>
+        private void ReloadPromptLibrary()
+        {
+            string libraryPath = Path.Combine(_libraryFolder, _selectedLibraryFile ?? "");
+            _libraryManager = new PromptLibraryManager(libraryPath);
+
+            // Remember current selections
+            string prevStyle = _selectedStyle?.DisplayName;
+            string prevLighting = _selectedLighting?.DisplayName;
+            string prevMaterial = _selectedMaterial?.DisplayName;
+            string prevBackground = _selectedBackground?.DisplayName;
+            string prevEntourage = _selectedEntourage?.DisplayName;
+            string prevWeather = _selectedWeather?.DisplayName;
+
+            // Repopulate phrase collections
+            RepopulateCollection(StylePhrases, _libraryManager.GetPhrasesForCategory("Style"));
+            RepopulateCollection(LightingPhrases, _libraryManager.GetPhrasesForCategory("Lighting"));
+            RepopulateCollection(MaterialPhrases, _libraryManager.GetPhrasesForCategory("Material"));
+            RepopulateCollection(BackgroundPhrases, _libraryManager.GetPhrasesForCategory("Background"));
+            RepopulateCollection(EntouragePhrases, _libraryManager.GetPhrasesForCategory("Entourage"));
+            RepopulateCollection(WeatherPhrases, _libraryManager.GetPhrasesForCategory("Weather"));
+
+            // Restore selections or fall back to first
+            SelectedStyle = FindByName(StylePhrases, prevStyle);
+            SelectedLighting = FindByName(LightingPhrases, prevLighting);
+            SelectedMaterial = FindByName(MaterialPhrases, prevMaterial);
+            SelectedBackground = FindByName(BackgroundPhrases, prevBackground);
+            SelectedEntourage = FindByName(EntouragePhrases, prevEntourage);
+            SelectedWeather = FindByName(WeatherPhrases, prevWeather);
+
+            // Repopulate themes
+            _themes = _libraryManager.GetThemes();
+            ThemeNames.Clear();
+            ThemeNames.Add(NoThemeLabel);
+            foreach (PromptTheme theme in _themes)
+                ThemeNames.Add(theme.Name);
+            _hasThemes = _themes.Count > 0;
+            OnPropertyChanged(nameof(HasThemes));
+            SelectedThemeName = NoThemeLabel;
         }
 
         // -- Image size and aspect ratio --
@@ -919,7 +1000,7 @@ namespace ReRender.UI
 
             string timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
             string tag = string.IsNullOrEmpty(suffix) ? "" : $"_{suffix}";
-            string fileName = $"ReRender{tag}_{timestamp}.png";
+            string fileName = $"ArchSmarterCharrette{tag}_{timestamp}.png";
             return Path.Combine(folder, fileName);
         }
 

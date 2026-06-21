@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace ReRender.Data
+namespace ArchSmarterCharrette.Data
 {
     public class RenderSettings
     {
@@ -9,7 +9,7 @@ namespace ReRender.Data
         public string ApiEndpoint { get; set; } = "v1beta";
         public string ModelName { get; set; } = "gemini-2.5-flash-image";
         public string PromptLibraryFolder { get; set; } = "";
-        public string PromptLibraryFile { get; set; } = "ReRender_PromptLibrary.json";
+        public string PromptLibraryFile { get; set; } = "ArchSmarterCharrette_PromptLibrary.json";
         public List<string> AvailableModels { get; set; } = new List<string>
         {
             "gemini-2.5-flash-image",

@@ -1,6 +1,6 @@
 ﻿using System.Windows.Media.Imaging;
 
-namespace ReRender.Helpers
+namespace ArchSmarterCharrette.Helpers
 {
     internal class ButtonDataClass
     {

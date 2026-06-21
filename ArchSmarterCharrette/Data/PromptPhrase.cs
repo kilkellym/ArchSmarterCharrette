@@ -1,4 +1,4 @@
-namespace ReRender.Data
+namespace ArchSmarterCharrette.Data
 {
     public class PromptPhrase
     {

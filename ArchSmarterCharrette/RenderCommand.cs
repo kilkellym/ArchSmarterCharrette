@@ -1,4 +1,4 @@
-namespace ReRender
+namespace ArchSmarterCharrette
 {
     [Transaction(TransactionMode.Manual)]
     public class RenderCommand : IExternalCommand
@@ -13,16 +13,17 @@ namespace ReRender
 
             try
             {
-                // If the window is already open, bring it to front
-                if (_openWindow != null && _openWindow.IsLoaded)
-                {
-                    _openWindow.Activate();
-                    return Result.Succeeded;
-                }
-
                 // Export the active view to a temporary PNG
                 View activeView = doc.ActiveView;
                 string exportedPath = Helpers.ViewExporter.ExportViewToTempPng(doc, activeView);
+
+                // If the window is already open, update it with the fresh export
+                if (_openWindow != null && _openWindow.IsLoaded)
+                {
+                    _openWindow.UpdateSourceImage(exportedPath);
+                    _openWindow.Activate();
+                    return Result.Succeeded;
+                }
 
                 // Open the render window as non-modal — user can continue working in Revit
                 _openWindow = new UI.RenderWindow(exportedPath);

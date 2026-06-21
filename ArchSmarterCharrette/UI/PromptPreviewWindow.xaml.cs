@@ -1,6 +1,6 @@
 using System.Windows;
 
-namespace ReRender.UI
+namespace ArchSmarterCharrette.UI
 {
     public partial class PromptPreviewWindow : Window
     {

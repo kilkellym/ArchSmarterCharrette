@@ -1,7 +1,7 @@
-namespace ReRender.Data
+namespace ArchSmarterCharrette.Data
 {
     /// <summary>
-    /// Launches the standalone ReRender.VideoTool.exe process.
+    /// Launches the standalone ArchSmarterCharrette.VideoTool.exe process.
     /// The external tool runs on .NET 10 to avoid assembly conflicts
     /// with Revit's .NET 8 runtime.
     /// </summary>
@@ -49,7 +49,7 @@ namespace ReRender.Data
             if (!System.IO.File.Exists(toolPath))
             {
                 throw new VideoGenerationException(
-                    $"Video tool not found at:\n{toolPath}\n\nMake sure ReRender.VideoTool is built.");
+                    $"Video tool not found at:\n{toolPath}\n\nMake sure ArchSmarterCharrette.VideoTool is built.");
             }
         }
 
@@ -64,17 +64,17 @@ namespace ReRender.Data
                 System.Reflection.Assembly.GetExecutingAssembly().Location) ?? "";
 
             // Check next to add-in DLL first (deployed scenario)
-            string deployedPath = System.IO.Path.Combine(addinFolder, "ReRender.VideoTool.exe");
+            string deployedPath = System.IO.Path.Combine(addinFolder, "ArchSmarterCharrette.VideoTool.exe");
             if (System.IO.File.Exists(deployedPath))
                 return deployedPath;
 
             // Check sibling project build output (development scenario)
-            // addinFolder is something like ...\ReRender\bin\Debug\2025
-            // VideoTool output is ...\ReRender.VideoTool\bin\Debug\net10.0-windows
+            // addinFolder is something like ...\ArchSmarterCharrette\bin\Debug\2025
+            // VideoTool output is ...\ArchSmarterCharrette.VideoTool\bin\Debug\net10.0-windows
             string projectRoot = System.IO.Path.GetFullPath(
                 System.IO.Path.Combine(addinFolder, "..", "..", "..", ".."));
             string devPath = System.IO.Path.Combine(projectRoot,
-                "ReRender.VideoTool", "bin", "Debug", "net10.0-windows", "ReRender.VideoTool.exe");
+                "ArchSmarterCharrette.VideoTool", "bin", "Debug", "net10.0-windows", "ArchSmarterCharrette.VideoTool.exe");
             if (System.IO.File.Exists(devPath))
                 return devPath;
 
