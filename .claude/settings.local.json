@@ -11,7 +11,9 @@
       "Bash(Select-Object -ExpandProperty FullName)",
       "Bash(git mv *)",
       "Bash(handle.exe ReRender)",
-      "PowerShell(Get-Process | Where-Object { $_.MainWindowTitle -match \"ReRender|Revit|Visual Studio|devenv\" } | Select-Object Id, ProcessName, MainWindowTitle)"
+      "PowerShell(Get-Process | Where-Object { $_.MainWindowTitle -match \"ReRender|Revit|Visual Studio|devenv\" } | Select-Object Id, ProcessName, MainWindowTitle)",
+      "Bash(git log *)",
+      "Bash(grep -r \"AppData\\\\\\\\|Users\\\\\\\\|C:\\\\\\\\\\\\\\\\\" --include=\"*.cs\" --include=\"*.xaml\")"
     ]
   }
 }

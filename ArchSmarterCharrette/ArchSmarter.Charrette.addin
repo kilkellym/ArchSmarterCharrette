@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  </AddIn>
+  <AddIn Type="Application">
+    <Name>ArchSmarterCharrette</Name>
+    <Assembly>ArchSmarterCharrette\ArchSmarterCharrette.dll</Assembly>
+    <FullClassName>ArchSmarterCharrette.App</FullClassName>
+    <ClientId>51539898-4e3d-4bea-ad1a-a5a46367066d</ClientId>
+    <VendorId>ArchSmarter</VendorId>
+    <VendorDescription>ArchSmarter, www.archsmarter.com</VendorDescription>
+  </AddIn>
+</RevitAddIns>

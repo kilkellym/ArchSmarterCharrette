@@ -1,8 +1,8 @@
 # ArchSmarter Charrette
 
-An open-source Revit add-in that turns any Revit view into a photorealistic architectural rendering using Google's Gemini AI. Export your active view, pick a style, and get a rendered image back in seconds — all without leaving Revit.
+An open-source Revit add-in that turns any Revit view into a photorealistic architectural rendering using Google's Gemini AI — and now generates animated videos from those renderings using Google's Veo models. Export your active view, pick a style, and get a rendered image or video back in seconds — all without leaving Revit.
 
-Your API key stays on your machine. ReRender calls the Gemini REST API directly, without an intermediary server.
+Your API key stays on your machine — it is stored locally in `%AppData%\ArchSmarter\` and is never logged, transmitted to any intermediary, or stored anywhere else. Charrette calls the Google AI APIs directly, with no intermediary server and no telemetry.
 
 ## Features
 
@@ -19,6 +19,15 @@ Your API key stays on your machine. ReRender calls the Gemini REST API directly,
 - **Configurable save location** — Choose where rendered images are saved
 - **Dark-themed UI** — Custom WPF controls styled to match modern dark interfaces
 
+### Video Generation
+
+- **AI-powered video from renderings** — Turn any rendered image into an animated architectural video using Google's Veo models
+- **Camera motion presets** — Choose from preset camera movements to control how the camera moves through the scene
+- **Mood, weather, and scene activity controls** — Fine-tune the atmosphere of your video with preset options for mood, weather, and scene activity
+- **Multiple Veo models** — Select from Veo 3.1, 3.1 Fast, 3.0, or 2.0 depending on quality and speed needs
+- **Resolution and duration** — Generate video up to 4K resolution, 4–8 seconds long, at 16:9 aspect ratio
+- **Video gallery** — Browse generated videos within the session
+
 ## Requirements
 
 - Autodesk Revit 2025 or 2026 (builds for 2020-2024 are defined but target .NET Framework 4.8)
@@ -30,8 +39,8 @@ Your API key stays on your machine. ReRender calls the Gemini REST API directly,
 1. Download the latest release (or build from source — see below)
 2. Copy `ReRender.addin` to `%AppData%\Autodesk\REVIT\Addins\2025\`
 3. Copy `ReRender.dll` and its dependencies to `%AppData%\Autodesk\REVIT\Addins\2025\ReRender\`
-4. Launch Revit. The **ArchSmarter** tab will appear in the ribbon with the **ReRender** button
-5. Click **Settings** to enter your Gemini API key
+4. Launch Revit. The **ArchSmarter** tab will appear in the ribbon with the **ReRender** and **Video** buttons
+5. Click **Settings** to enter your Gemini API key (used for both rendering and video generation)
 
 ## Building from Source
 
@@ -57,6 +66,20 @@ Revit View ──> PNG Export ──> Gemini API ──> Rendered Image ──> 
 2. **Prompt assembly** — `PromptBuilder` combines a geometry-adherence preamble with the user's style selections and custom directions into a single text prompt
 3. **API call** — `GeminiClient` sends the base64-encoded image and prompt to the Gemini REST API (`generateContent` endpoint), requesting both text and image response modalities
 4. **Result** — The response is parsed for an `inlineData` image part, decoded from base64, and written to the output folder as a timestamped PNG
+
+### Video Pipeline
+
+```
+Rendered Image ──> Veo API ──> Poll for completion ──> MP4 ──> Disk
+```
+
+1. **Source image** — The user selects a previously rendered image (or any image file) as the starting frame
+2. **Prompt assembly** — Camera motion, mood, weather, and scene activity presets are combined into a video generation prompt
+3. **API call** — The standalone VideoTool process calls the Google GenAI API using a Veo model, submitting the image and prompt
+4. **Polling** — The API returns an operation ID; the tool polls for completion (up to 10 minutes)
+5. **Result** — The finished MP4 is saved to the output folder
+
+The video feature runs as a separate standalone process (`ArchSmarterCharrette.VideoTool`) to avoid .NET version conflicts between Revit's runtime and the Google GenAI SDK (which requires .NET 10). The Revit add-in launches the VideoTool via `VideoToolLauncher`, passing the source image path and API key as arguments.
 
 ### Prompt Construction
 
@@ -94,15 +117,20 @@ Prompt libraries are JSON files stored in `%AppData%\ArchSmarter\ReRender\Prompt
 
 ## Architecture
 
+The solution has two projects:
+
+### ArchSmarterCharrette (Revit Add-in)
+
 ```
-ReRender/
+ArchSmarterCharrette/
 ├── App.cs                          # Ribbon tab and panel setup
 ├── RenderCommand.cs                # IExternalCommand — exports view, opens render window
+├── VideoCommand.cs                 # IExternalCommand — launches the video tool
 ├── SettingsCommand.cs              # IExternalCommand — opens settings window
 │
 ├── Data/
 │   ├── GeminiClient.cs             # REST API client for Gemini image generation
-│   ├── GeminiException.cs          # (in GeminiClient.cs) Error type with raw JSON
+│   ├── GeminiVideoClient.cs        # Launches the standalone VideoTool process
 │   ├── PromptBuilder.cs            # Assembles prompt text from phrase selections
 │   ├── PromptPhrase.cs             # Model: Category + DisplayName + Phrase
 │   ├── PromptTheme.cs              # Model: named preset of category selections
@@ -131,6 +159,28 @@ ReRender/
     └── PromptPreviewWindow.xaml / .cs   # Read-only prompt text viewer
 ```
 
+### ArchSmarterCharrette.VideoTool (Standalone WPF App, .NET 10)
+
+Runs as a separate process to use the `Google.GenAI` SDK without conflicting with Revit's .NET runtime.
+
+```
+ArchSmarterCharrette.VideoTool/
+├── Data/
+│   ├── VideoArgs.cs                    # Parses command-line args from the Revit add-in
+│   ├── CameraMotionPreset.cs           # Model: camera movement options
+│   ├── MoodPreset.cs                   # Model: mood/atmosphere options
+│   ├── WeatherPreset.cs                # Model: weather options
+│   ├── SceneActivityPreset.cs          # Model: scene activity options
+│   ├── VideoSettings.cs                # Model: video generation settings
+│   ├── VideoSettingsManager.cs         # Loads/saves video settings JSON
+│   └── VideoGalleryItem.cs             # Wraps generated video path with thumbnail
+│
+└── UI/
+    ├── VideoWindow.xaml / .cs          # Main video generation window
+    ├── VideoWindowViewModel.cs         # Video window logic and state
+    └── VideoSettingsWindow.xaml / .cs   # Video settings (model, resolution, duration)
+```
+
 ### Key Design Decisions
 
 - **MVVM pattern** — ViewModels hold business logic; code-behind handles only WPF-specific wiring (PasswordBox sync, context menu navigation, dialog ownership)
@@ -138,18 +188,20 @@ ReRender/
 - **Static session history** — `SessionHistory` is a static class so rendered image paths persist across window open/close cycles within a single Revit session. It resets when Revit restarts (assembly unload)
 - **Settings auto-save** — Every property change in the settings ViewModel writes to disk immediately via `RenderSettingsManager`
 - **Editable prompt libraries** — Prompt phrases are data, not code. Users can create, edit, and share library JSON files without rebuilding
+- **Separate video process** — The video tool runs as a standalone .NET 10 executable because the `Google.GenAI` SDK requires a newer runtime than Revit provides. The add-in launches it via `VideoToolLauncher`, passing the source image and API key as command-line arguments
 
 ## Configuration Files
 
-All configuration is stored under `%AppData%\ArchSmarter\ReRender\`:
+All configuration is stored under `%AppData%\ArchSmarter\`:
 
 | File | Purpose |
 |---|---|
-| `ReRender.json` | App settings (API key, model, output folder, library path) |
-| `ReRender_Presets.json` | Saved render presets |
-| `PromptLibraries/*.json` | Prompt library files |
+| `ReRender\ReRender.json` | Render settings (API key, model, output folder, library path) |
+| `ReRender\ReRender_Presets.json` | Saved render presets |
+| `ReRender\PromptLibraries/*.json` | Prompt library files |
+| `ArchSmarterCharrette.json` | Shared settings including the Gemini API key (used by the video tool) |
 
-Default rendered images are saved to `%UserProfile%\Pictures\ReRender\` (configurable in Settings).
+Default rendered images are saved to `%UserProfile%\Pictures\ReRender\` (configurable in Settings). Generated videos are saved alongside rendered images.
 
 ## License
 
