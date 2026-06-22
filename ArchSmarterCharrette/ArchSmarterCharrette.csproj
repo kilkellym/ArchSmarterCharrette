@@ -7,8 +7,8 @@
 	<PlatformTarget>x64</PlatformTarget>
 	<ImplicitUsings>true</ImplicitUsings>
 	<PublishAddinFiles>true</PublishAddinFiles>
-	<Configurations>Debug R20;Debug R21;Debug R22;Debug R23;Debug R24;Debug R25;Debug R26;Release R20;Release R21;Release R22;Release R23;Release R24;Release R25;Release R26;Debug</Configurations>
-	<Configurations>$(Configurations);Release R20;Release R21;Release R22;Release R23;Release R24;Release R25;Release R26</Configurations>
+	<Configurations>Debug R20;Debug R21;Debug R22;Debug R23;Debug R24;Debug R25;Debug R26;Debug R27;Release R20;Release R21;Release R22;Release R23;Release R24;Release R25;Release R26;Release R27;Debug</Configurations>
+	<Configurations>$(Configurations);Release R20;Release R21;Release R22;Release R23;Release R24;Release R25;Release R26;Release R27</Configurations>
 	<Nullable>disable</Nullable>
 	<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
 	<ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>None</ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
@@ -58,6 +58,13 @@
     	<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
 	<EnableNETAnalyzers>true</EnableNETAnalyzers>
 	<DefineConstants>$(DefineConstants);REVIT2026</DefineConstants>
+</PropertyGroup>
+<PropertyGroup Condition="$(Configuration.Contains('R27'))">
+	<RevitVersion>2027</RevitVersion>
+	<TargetFramework>net10.0-windows</TargetFramework>
+	<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+	<EnableNETAnalyzers>true</EnableNETAnalyzers>
+	<DefineConstants>$(DefineConstants);REVIT2027</DefineConstants>
 </PropertyGroup>
 	
 <PropertyGroup Condition="$(Configuration.Contains('Debug'))">
