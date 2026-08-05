@@ -49,8 +49,10 @@ namespace ArchSmarterCharrette
                 buttonInternalName,
                 buttonTitle,
                 MethodBase.GetCurrentMethod().DeclaringType?.FullName,
-                Properties.Resources.Red_32,
-                Properties.Resources.Red_16,
+                Properties.Resources.Render_32,
+                Properties.Resources.Render_16,
+                Properties.Resources.RenderDark_32,
+                Properties.Resources.RenderDark_16,
                 "Export the active view and render it with AI using Google Gemini");
 
             return myButtonData.Data;

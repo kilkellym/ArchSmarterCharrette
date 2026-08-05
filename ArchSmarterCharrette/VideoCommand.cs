@@ -32,8 +32,10 @@ namespace ArchSmarterCharrette
                 buttonInternalName,
                 buttonTitle,
                 MethodBase.GetCurrentMethod().DeclaringType?.FullName,
-                Properties.Resources.Blue_32,
-                Properties.Resources.Blue_16,
+                Properties.Resources.Video_32,
+                Properties.Resources.Video_16,
+                Properties.Resources.VideoDark_32,
+                Properties.Resources.VideoDark_16,
                 "Generate a video from a rendered image");
 
             return myButtonData.Data;

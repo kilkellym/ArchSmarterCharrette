@@ -29,8 +29,10 @@ namespace ArchSmarterCharrette
                 buttonInternalName,
                 buttonTitle,
                 MethodBase.GetCurrentMethod().DeclaringType?.FullName,
-                Properties.Resources.Red_32,
-                Properties.Resources.Red_16,
+                Properties.Resources.Settings_32,
+                Properties.Resources.Settings_16,
+                Properties.Resources.SettingsDark_32,
+                Properties.Resources.SettingsDark_16,
                 "Configure Charrette settings (API key and model)");
 
             return myButtonData.Data;

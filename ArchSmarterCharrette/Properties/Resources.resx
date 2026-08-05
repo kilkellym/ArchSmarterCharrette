@@ -142,4 +142,40 @@
   <data name="Yellow_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Yellow_32.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="Render_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Render_16.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Render_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Render_32.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="RenderDark_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RenderDark_16.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="RenderDark_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RenderDark_32.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Video_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Video_16.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Video_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Video_32.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="VideoDark_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\VideoDark_16.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="VideoDark_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\VideoDark_32.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Settings_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Settings_16.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Settings_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Settings_32.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="SettingsDark_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SettingsDark_16.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="SettingsDark_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SettingsDark_32.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

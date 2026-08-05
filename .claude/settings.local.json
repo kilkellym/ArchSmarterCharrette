@@ -13,7 +13,13 @@
       "Bash(handle.exe ReRender)",
       "PowerShell(Get-Process | Where-Object { $_.MainWindowTitle -match \"ReRender|Revit|Visual Studio|devenv\" } | Select-Object Id, ProcessName, MainWindowTitle)",
       "Bash(git log *)",
-      "Bash(grep -r \"AppData\\\\\\\\|Users\\\\\\\\|C:\\\\\\\\\\\\\\\\\" --include=\"*.cs\" --include=\"*.xaml\")"
+      "Bash(grep -r \"AppData\\\\\\\\|Users\\\\\\\\|C:\\\\\\\\\\\\\\\\\" --include=\"*.cs\" --include=\"*.xaml\")",
+      "Bash(ls -R \"C:/Users/micha/AppData/Roaming/Claude/local-agent-mode-sessions/skills-plugin/fbc850f9-0c29-463b-909e-2381905fb752/94a20cbf-9fe3-4389-b11e-0afffe67644e/skills/prompticon\")",
+      "Bash(cat \"C:/Users/micha/AppData/Roaming/Claude/local-agent-mode-sessions/skills-plugin/fbc850f9-0c29-463b-909e-2381905fb752/94a20cbf-9fe3-4389-b11e-0afffe67644e/skills/prompticon/references/svg-authoring.md\")",
+      "Bash(python C:/Users/micha/AppData/Roaming/Claude/local-agent-mode-sessions/skills-plugin/fbc850f9-0c29-463b-909e-2381905fb752/94a20cbf-9fe3-4389-b11e-0afffe67644e/skills/prompticon/scripts/rasterize.py --svg C:/Users/micha/AppData/Local/Temp/claude/C--Users-micha-source-repos-ArchSmarterCharrette/211ef264-c614-4df8-9146-68a6cf4f4493/scratchpad/charrette_set --out-dir C:/Users/micha/AppData/Local/Temp/claude/C--Users-micha-source-repos-ArchSmarterCharrette/211ef264-c614-4df8-9146-68a6cf4f4493/scratchpad/out)",
+      "Bash(pip install *)",
+      "Bash(python -c ' *)",
+      "Bash(python -c \"import resvg_py; print\\('resvg ok'\\)\")"
     ]
   }
 }

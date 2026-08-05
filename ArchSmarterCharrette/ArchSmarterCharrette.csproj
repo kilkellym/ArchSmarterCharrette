@@ -94,6 +94,18 @@
 	<EmbeddedResource Include="Resources\Red_32.png" />
 	<EmbeddedResource Include="Resources\Yellow_16.png" />
 	<EmbeddedResource Include="Resources\Yellow_32.png" />
+	<EmbeddedResource Include="Resources\Render_16.png" />
+	<EmbeddedResource Include="Resources\Render_32.png" />
+	<EmbeddedResource Include="Resources\RenderDark_16.png" />
+	<EmbeddedResource Include="Resources\RenderDark_32.png" />
+	<EmbeddedResource Include="Resources\Video_16.png" />
+	<EmbeddedResource Include="Resources\Video_32.png" />
+	<EmbeddedResource Include="Resources\VideoDark_16.png" />
+	<EmbeddedResource Include="Resources\VideoDark_32.png" />
+	<EmbeddedResource Include="Resources\Settings_16.png" />
+	<EmbeddedResource Include="Resources\Settings_32.png" />
+	<EmbeddedResource Include="Resources\SettingsDark_16.png" />
+	<EmbeddedResource Include="Resources\SettingsDark_32.png" />
 </ItemGroup>
 	
 <ItemGroup>

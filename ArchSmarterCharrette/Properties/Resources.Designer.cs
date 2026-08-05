@@ -163,5 +163,149 @@ namespace ArchSmarterCharrette.Properties
                 return ((byte[])(obj));
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Render_16
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("Render_16", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Render_32
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("Render_32", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] RenderDark_16
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("RenderDark_16", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] RenderDark_32
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("RenderDark_32", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Video_16
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("Video_16", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Video_32
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("Video_32", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] VideoDark_16
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("VideoDark_16", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] VideoDark_32
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("VideoDark_32", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Settings_16
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("Settings_16", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Settings_32
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("Settings_32", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] SettingsDark_16
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("SettingsDark_16", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] SettingsDark_32
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("SettingsDark_32", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }
