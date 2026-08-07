@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is a C# Revit add-in built with Visual Studio using the ArchSmarter add-in template. It targets Revit 2025 by default (net8.0-windows) and supports Revit 2020 through 2026 via multi-configuration builds.
+This is a C# Revit add-in built with Visual Studio using the ArchSmarter add-in template. It targets Revit 2025 by default (net8.0-windows) and supports Revit 2025 through 2027 via multi-configuration builds.
 
 Replace this section with a brief description of what this specific add-in does.
 
@@ -32,8 +32,8 @@ Replace this section with a brief description of what this specific add-in does.
 This project uses a multi-configuration build system. Each configuration targets a specific Revit version.
 
 - Configurations follow the pattern `Debug R25`, `Release R25`, `Debug R26`, etc.
-- R20 through R24 target `net48` (.NET Framework 4.8)
 - R25 and R26 target `net8.0-windows`
+- R27 targets `net10.0-windows`
 - The active Revit version is derived from the configuration name at build time via `$(RevitVersion)`
 - The NuGet package `Revit_All_Main_Versions_API_x64` provides Revit API references. Do not reference Revit DLLs directly from the install path.
 - Default target is R25 (`net8.0-windows`) unless otherwise specified

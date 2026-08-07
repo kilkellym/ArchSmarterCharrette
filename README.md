@@ -30,7 +30,7 @@ Your API key stays on your machine — it is stored locally in `%AppData%\ArchSm
 
 ## Requirements
 
-- Autodesk Revit 2025 or 2026 (builds for 2020-2024 are defined but target .NET Framework 4.8)
+- Autodesk Revit 2025, 2026, or 2027
 - A [Google Gemini API key](https://aistudio.google.com/apikey) with access to image generation models
 - Windows 10/11
 
@@ -52,7 +52,7 @@ dotnet build -c "Debug R25"
 
 The post-build step automatically copies the output to the Revit Addins folder. Make sure Revit is closed when building, or the copy will fail because Revit locks the DLL.
 
-Available configurations: `Debug R20` through `Debug R26` (and corresponding `Release` configs). R25/R26 target `net8.0-windows`; R20-R24 target `net48`.
+Available configurations: `Debug R25`, `Debug R26`, and `Debug R27` (and corresponding `Release` configs). R25/R26 target `net8.0-windows`; R27 targets `net10.0-windows`.
 
 ## How It Works
 
