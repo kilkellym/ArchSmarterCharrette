@@ -4,7 +4,7 @@ namespace ArchSmarterCharrette.Data
 {
     public class RenderSettingsManager
     {
-        private static readonly string SettingsFileName = "ArchSmarterCharrette.json";
+        private static readonly string SettingsFileName = "Charrette.json";
         private readonly string _filePath;
         private RenderSettings _settings;
 
@@ -24,7 +24,7 @@ namespace ArchSmarterCharrette.Data
         {
             string folderPath = Path.Combine(
                 Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
-                "ArchSmarter", "ArchSmarterCharrette");
+                "ArchSmarter", "Charrette");
             return Path.Combine(folderPath, SettingsFileName);
         }
 
@@ -104,7 +104,7 @@ namespace ArchSmarterCharrette.Data
         {
             return Path.Combine(
                 Environment.GetFolderPath(Environment.SpecialFolder.MyPictures),
-                "ArchSmarterCharrette");
+                "Charrette");
         }
 
         public string GetOutputFolder()
@@ -215,7 +215,7 @@ namespace ArchSmarterCharrette.Data
         {
             return Path.Combine(
                 Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
-                "ArchSmarter", "ArchSmarterCharrette", "PromptLibraries");
+                "ArchSmarter", "Charrette", "PromptLibraries");
         }
 
         public string GetPromptLibraryFolder()

@@ -10,7 +10,7 @@ namespace ArchSmarterCharrette.Data
     /// </summary>
     public class RenderPresetManager
     {
-        private static readonly string PresetsFileName = "ArchSmarterCharrette_Presets.json";
+        private static readonly string PresetsFileName = "Charrette_Presets.json";
         private readonly string _filePath;
         private List<RenderPreset> _presets;
 
@@ -30,7 +30,7 @@ namespace ArchSmarterCharrette.Data
         {
             string folderPath = Path.Combine(
                 Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
-                "ArchSmarter", "ArchSmarterCharrette");
+                "ArchSmarter", "Charrette");
             return Path.Combine(folderPath, PresetsFileName);
         }
 

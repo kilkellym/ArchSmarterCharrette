@@ -145,7 +145,7 @@ namespace ArchSmarterCharrette.UI
             if (AvailableLibraryFiles.Count == 0)
             {
                 // Create the default file so there's always something to select
-                string defaultPath = Path.Combine(folder, "ArchSmarterCharrette_PromptLibrary.json");
+                string defaultPath = Path.Combine(folder, PromptLibraryManager.DefaultFileName);
                 var tempManager = new PromptLibraryManager(defaultPath);
                 AvailableLibraryFiles.Add(Path.GetFileName(defaultPath));
             }

@@ -2,7 +2,7 @@
 
 An open-source Revit add-in that turns any Revit view into a rendered architectural image using Google's Gemini models — and animates those renderings into short videos using Google's Veo models. Export the active view, pick a style, and get an image or video back without leaving Revit.
 
-Your API key stays on your machine. It is stored locally in `%AppData%\ArchSmarter\ArchSmarterCharrette\` and is never logged or sent anywhere except Google's API. Charrette calls the Google AI APIs directly — no intermediary server, no telemetry.
+Your API key stays on your machine. It is stored locally in `%AppData%\ArchSmarter\Charrette\` and is never logged or sent anywhere except Google's API. Charrette calls the Google AI APIs directly — no intermediary server, no telemetry.
 
 ---
 
@@ -115,10 +115,10 @@ At 1080p or 4K with a source image, only 8 seconds is valid. Aspect ratio is fix
 |---|---|
 | Gemini API key | Shared by both the render and video sides. Show/hide toggle. |
 | Model | `gemini-2.5-flash-image`, `gemini-3.1-flash-image`, or `gemini-3-pro-image` |
-| Output folder | Defaults to `%UserProfile%\Pictures\ArchSmarterCharrette` |
+| Output folder | Defaults to `%UserProfile%\Pictures\Charrette` |
 | Prompt library folder / file | The active library, plus an **Edit** button that opens the JSON in your default editor |
 
-**Video tool → Settings** (video side): API key, image output folder, video output folder (defaults to `%UserProfile%\Pictures\ArchSmarterCharrette\Videos`). Model, resolution, and duration are set in the main video window.
+**Video tool → Settings** (video side): API key, image output folder, video output folder (defaults to `%UserProfile%\Pictures\Charrette\Videos`). Model, resolution, and duration are set in the main video window.
 
 Every change saves to disk immediately — there is no OK/Apply button.
 
@@ -126,7 +126,7 @@ Every change saves to disk immediately — there is no OK/Apply button.
 
 ## Prompt libraries
 
-Prompt libraries are the main extension point. They are plain JSON files in `%AppData%\ArchSmarter\ArchSmarterCharrette\PromptLibraries\`, and any `.json` file you drop in that folder shows up in the library dropdown. A default library is written on first run.
+Prompt libraries are the main extension point. They are plain JSON files in `%AppData%\ArchSmarter\Charrette\PromptLibraries\`, and any `.json` file you drop in that folder shows up in the library dropdown. A default library is written on first run.
 
 ```json
 {
@@ -320,22 +320,22 @@ ArchSmarterCharrette.VideoTool/
 
 ## Configuration files
 
-Everything lives under `%AppData%\ArchSmarter\ArchSmarterCharrette\`:
+Everything lives under `%AppData%\ArchSmarter\Charrette\`:
 
 | File | Purpose |
 |---|---|
-| `ArchSmarterCharrette.json` | All settings: API key, model, output folders, library selection, video model/resolution/duration |
-| `ArchSmarterCharrette_Presets.json` | Saved render presets |
-| `PromptLibraries\*.json` | Prompt library files (default: `ArchSmarterCharrette_PromptLibrary.json`) |
+| `Charrette.json` | All settings: API key, model, output folders, library selection, video model/resolution/duration |
+| `Charrette_Presets.json` | Saved render presets |
+| `PromptLibraries\*.json` | Prompt library files (default: `Charrette_PromptLibrary.json`) |
 
 Default output locations:
 
 | Output | Path |
 |---|---|
-| Rendered images | `%UserProfile%\Pictures\ArchSmarterCharrette\` |
-| Generated videos | `%UserProfile%\Pictures\ArchSmarterCharrette\Videos\` |
+| Rendered images | `%UserProfile%\Pictures\Charrette\` |
+| Generated videos | `%UserProfile%\Pictures\Charrette\Videos\` |
 
-Both are configurable. `ArchSmarterCharrette.json` contains your API key in plain text — don't commit it or sync it somewhere public.
+Both are configurable. `Charrette.json` contains your API key in plain text — don't commit it or sync it somewhere public.
 
 ---
 
@@ -347,7 +347,7 @@ Both are configurable. `ArchSmarterCharrette.json` contains your API key in plai
 
 **The video tool starts and immediately closes.** The .NET 10 Desktop Runtime is probably missing.
 
-**"Please configure your API key in Settings."** The key is empty in `ArchSmarterCharrette.json`. Note the render window and video tool read the same key, but each has its own Settings window.
+**"Please configure your API key in Settings."** The key is empty in `Charrette.json`. Note the render window and video tool read the same key, but each has its own Settings window.
 
 **Revit did not produce an exported image.** The active view can't be exported — schedules and empty sheets are the usual culprits. Switch to a model view.
 

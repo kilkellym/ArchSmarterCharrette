@@ -6,7 +6,11 @@ namespace ArchSmarterCharrette.Data
 {
     public class PromptLibraryManager
     {
-        private static readonly string DefaultFileName = "ArchSmarterCharrette_PromptLibrary.json";
+        /// <summary>
+        /// File name of the prompt library created on first run.
+        /// </summary>
+        public const string DefaultFileName = "Charrette_PromptLibrary.json";
+
         private readonly string _filePath;
         private List<PromptPhrase> _phrases;
         private List<PromptTheme> _themes;

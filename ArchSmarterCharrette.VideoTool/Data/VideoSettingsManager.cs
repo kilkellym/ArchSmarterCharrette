@@ -5,8 +5,8 @@ using System.Text.Json;
 namespace ArchSmarterCharrette.VideoTool.Data
 {
     /// <summary>
-    /// Reads and writes video settings from the shared ArchSmarterCharrette.json file.
-    /// The settings file lives at %AppData%\ArchSmarter\ArchSmarterCharrette\ArchSmarterCharrette.json
+    /// Reads and writes video settings from the shared Charrette.json file.
+    /// The settings file lives at %AppData%\ArchSmarter\Charrette\Charrette.json
     /// and is shared with the Revit add-in.
     ///
     /// Because the JSON contains fields for both render and video settings,
@@ -14,7 +14,7 @@ namespace ArchSmarterCharrette.VideoTool.Data
     /// </summary>
     public class VideoSettingsManager
     {
-        private static readonly string SettingsFileName = "ArchSmarterCharrette.json";
+        private static readonly string SettingsFileName = "Charrette.json";
         private readonly string _filePath;
         private VideoSettings _settings;
 
@@ -40,7 +40,7 @@ namespace ArchSmarterCharrette.VideoTool.Data
         {
             string folderPath = Path.Combine(
                 System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData),
-                "ArchSmarter", "ArchSmarterCharrette");
+                "ArchSmarter", "Charrette");
             return Path.Combine(folderPath, SettingsFileName);
         }
 
@@ -118,7 +118,7 @@ namespace ArchSmarterCharrette.VideoTool.Data
         {
             return Path.Combine(
                 System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyPictures),
-                "ArchSmarterCharrette");
+                "Charrette");
         }
 
         public string GetOutputFolder()
@@ -141,7 +141,7 @@ namespace ArchSmarterCharrette.VideoTool.Data
         {
             return Path.Combine(
                 System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyPictures),
-                "ArchSmarterCharrette", "Videos");
+                "Charrette", "Videos");
         }
 
         public string GetVideoOutputFolder()

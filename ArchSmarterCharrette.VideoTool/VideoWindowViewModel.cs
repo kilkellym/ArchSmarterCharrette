@@ -361,7 +361,7 @@ namespace ArchSmarterCharrette.VideoTool
             string apiKey = _settingsManager.GetGeminiApiKey();
             if (string.IsNullOrWhiteSpace(apiKey))
             {
-                StatusText = "API key is not set. Add your Google API key to ArchSmarterCharrette.json in\n" +
+                StatusText = "API key is not set. Add your Google API key to Charrette.json in\n" +
                              VideoSettingsManager.GetSettingsFilePath();
                 StatusColor = Brushes.Red;
                 return;
