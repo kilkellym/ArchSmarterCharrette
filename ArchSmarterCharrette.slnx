@@ -12,8 +12,10 @@
   <Project Path="ArchSmarterCharrette.VideoTool/ArchSmarterCharrette.VideoTool.csproj">
     <BuildType Solution="Release R25|*" Project="Release" />
     <BuildType Solution="Release R26|*" Project="Release" />
+    <BuildType Solution="Release R27|*" Project="Release" />
   </Project>
   <Project Path="ArchSmarterCharrette/ArchSmarterCharrette.csproj">
+    <BuildType Solution="Release|*" Project="Release R25" />
     <Build Solution="Debug|*" Project="false" />
     <Build Solution="Release|*" Project="false" />
   </Project>
