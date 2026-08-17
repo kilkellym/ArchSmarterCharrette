@@ -8,6 +8,13 @@ namespace ArchSmarterCharrette.Data
         private readonly string _filePath;
         private RenderSettings _settings;
 
+        /// <summary>
+        /// Every property found in the settings file, kept so fields this class
+        /// doesn't model (the video tool writes some) survive a save instead of
+        /// being dropped. Mirrors VideoSettingsManager, which does the same for us.
+        /// </summary>
+        private Dictionary<string, JsonElement> _rawFields = new Dictionary<string, JsonElement>();
+
         private static readonly JsonSerializerOptions JsonOptions = new JsonSerializerOptions
         {
             WriteIndented = true,
@@ -64,13 +71,42 @@ namespace ArchSmarterCharrette.Data
 
             try
             {
+                _rawFields = ReadRawFieldsFromDisk();
                 string json = File.ReadAllText(_filePath);
                 return JsonSerializer.Deserialize<RenderSettings>(json) ?? new RenderSettings();
             }
             catch (Exception)
             {
+                _rawFields = new Dictionary<string, JsonElement>();
                 return new RenderSettings();
             }
+        }
+
+        /// <summary>
+        /// Reads every property currently in the settings file.
+        /// Called before each save rather than relying on the snapshot taken at
+        /// construction: the video tool shares this file and may have written to
+        /// it since, and a stale snapshot would silently revert its changes.
+        /// </summary>
+        private Dictionary<string, JsonElement> ReadRawFieldsFromDisk()
+        {
+            var fields = new Dictionary<string, JsonElement>();
+
+            try
+            {
+                if (File.Exists(_filePath))
+                {
+                    using JsonDocument doc = JsonDocument.Parse(File.ReadAllText(_filePath));
+                    foreach (JsonProperty prop in doc.RootElement.EnumerateObject())
+                        fields[prop.Name] = prop.Value.Clone();
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error reading settings for merge: {ex.Message}");
+            }
+
+            return fields;
         }
 
         public void SaveSettings()
@@ -83,8 +119,30 @@ namespace ArchSmarterCharrette.Data
                     Directory.CreateDirectory(folderPath);
                 }
 
+                // Re-read first so fields the video tool wrote since we loaded
+                // are picked up, then merge our own values over the top.
+                _rawFields = ReadRawFieldsFromDisk();
+
                 string json = JsonSerializer.Serialize(_settings, JsonOptions);
-                File.WriteAllText(_filePath, json);
+                using (JsonDocument doc = JsonDocument.Parse(json))
+                {
+                    foreach (JsonProperty prop in doc.RootElement.EnumerateObject())
+                        _rawFields[prop.Name] = prop.Value.Clone();
+                }
+
+                using var stream = new MemoryStream();
+                using (var writer = new Utf8JsonWriter(stream, new JsonWriterOptions { Indented = true }))
+                {
+                    writer.WriteStartObject();
+                    foreach (var kvp in _rawFields)
+                    {
+                        writer.WritePropertyName(kvp.Key);
+                        kvp.Value.WriteTo(writer);
+                    }
+                    writer.WriteEndObject();
+                }
+
+                File.WriteAllBytes(_filePath, stream.ToArray());
             }
             catch (Exception ex)
             {
@@ -246,76 +304,8 @@ namespace ArchSmarterCharrette.Data
             SaveSettings();
         }
 
-        // -- Video generation settings --
-
-        public string GetVideoApiKey()
-        {
-            return _settings.VideoApiKey ?? "";
-        }
-
-        public void SetVideoApiKey(string apiKey)
-        {
-            _settings.VideoApiKey = apiKey ?? "";
-            SaveSettings();
-        }
-
-        public string GetVideoModel()
-        {
-            return _settings.VideoModel ?? new RenderSettings().VideoModel;
-        }
-
-        public void SetVideoModel(string model)
-        {
-            _settings.VideoModel = model ?? new RenderSettings().VideoModel;
-            SaveSettings();
-        }
-
-        public List<string> GetAvailableVideoModels()
-        {
-            List<string> models = _settings.AvailableVideoModels;
-            if (models == null || models.Count == 0)
-                return new RenderSettings().AvailableVideoModels;
-            return models;
-        }
-
-        public List<string> GetAvailableVideoResolutions()
-        {
-            List<string> resolutions = _settings.AvailableVideoResolutions;
-            if (resolutions == null || resolutions.Count == 0)
-                return new RenderSettings().AvailableVideoResolutions;
-            return resolutions;
-        }
-
-        public string GetVideoResolution()
-        {
-            return _settings.VideoResolution ?? new RenderSettings().VideoResolution;
-        }
-
-        public void SetVideoResolution(string resolution)
-        {
-            _settings.VideoResolution = resolution ?? new RenderSettings().VideoResolution;
-            SaveSettings();
-        }
-
-        public List<int> GetAvailableVideoDurations()
-        {
-            List<int> durations = _settings.AvailableVideoDurations;
-            if (durations == null || durations.Count == 0)
-                return new RenderSettings().AvailableVideoDurations;
-            return durations;
-        }
-
-        public int GetVideoDuration()
-        {
-            return _settings.VideoDuration > 0
-                ? _settings.VideoDuration
-                : new RenderSettings().VideoDuration;
-        }
-
-        public void SetVideoDuration(int duration)
-        {
-            _settings.VideoDuration = duration > 0 ? duration : new RenderSettings().VideoDuration;
-            SaveSettings();
-        }
+        // Video settings are owned by ArchSmarterCharrette.VideoTool, which has
+        // its own UI and its own manager for them. They pass through this class
+        // untouched via the raw-field round-trip in SaveSettings.
     }
 }

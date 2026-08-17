@@ -314,7 +314,7 @@ ArchSmarterCharrette.VideoTool/
 - **Static session history** — `SessionHistory` is static so the gallery survives window close/reopen within a Revit session, and resets on assembly unload.
 - **Immediate persistence** — Settings and presets write to disk on every change.
 - **Prompt phrases are data** — Editable and shareable JSON, no rebuild required.
-- **Separate video process** — See [above](#why-the-video-tool-is-a-separate-process). The video tool round-trips unknown fields when saving the shared settings file, so the two processes don't clobber each other's settings.
+- **Separate video process** — See [above](#why-the-video-tool-is-a-separate-process). Both processes write the same settings file, and each models only the fields it cares about, so both round-trip the properties they don't recognize rather than dropping them on save. Note the raw field snapshot is taken when a settings manager is constructed: if both windows are open at once, the last one to save wins for any field the other changed in the meantime.
 
 ---
 

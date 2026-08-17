@@ -47,7 +47,7 @@ namespace ArchSmarterCharrette.VideoTool.Data
         private void LoadSettings()
         {
             _settings = new VideoSettings();
-            _rawFields = new Dictionary<string, JsonElement>();
+            _rawFields = ReadRawFieldsFromDisk();
 
             if (!System.IO.File.Exists(_filePath))
                 return;
@@ -55,13 +55,6 @@ namespace ArchSmarterCharrette.VideoTool.Data
             try
             {
                 string json = System.IO.File.ReadAllText(_filePath);
-                using JsonDocument doc = JsonDocument.Parse(json);
-
-                // Preserve all fields for round-tripping
-                foreach (JsonProperty prop in doc.RootElement.EnumerateObject())
-                {
-                    _rawFields[prop.Name] = prop.Value.Clone();
-                }
 
                 // Deserialize only the fields we care about
                 _settings = JsonSerializer.Deserialize<VideoSettings>(json) ?? new VideoSettings();
@@ -73,6 +66,34 @@ namespace ArchSmarterCharrette.VideoTool.Data
             }
         }
 
+        /// <summary>
+        /// Reads every property currently in the settings file.
+        /// Called before each save rather than relying on the snapshot taken at
+        /// construction: the Revit add-in shares this file and may have written
+        /// to it since — including creating it, if it did not exist when this
+        /// window opened. A stale snapshot would silently drop those fields.
+        /// </summary>
+        private Dictionary<string, JsonElement> ReadRawFieldsFromDisk()
+        {
+            var fields = new Dictionary<string, JsonElement>();
+
+            try
+            {
+                if (System.IO.File.Exists(_filePath))
+                {
+                    using JsonDocument doc = JsonDocument.Parse(System.IO.File.ReadAllText(_filePath));
+                    foreach (JsonProperty prop in doc.RootElement.EnumerateObject())
+                        fields[prop.Name] = prop.Value.Clone();
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error reading settings for merge: {ex.Message}");
+            }
+
+            return fields;
+        }
+
         private void SaveSettings()
         {
             try
@@ -80,6 +101,10 @@ namespace ArchSmarterCharrette.VideoTool.Data
                 string folderPath = Path.GetDirectoryName(_filePath);
                 if (!Directory.Exists(folderPath))
                     Directory.CreateDirectory(folderPath);
+
+                // Re-read first so fields the add-in wrote since we loaded are
+                // picked up, then merge our own values over the top.
+                _rawFields = ReadRawFieldsFromDisk();
 
                 // Serialize our video settings to get updated values
                 string videoJson = JsonSerializer.Serialize(_settings, JsonOptions);
