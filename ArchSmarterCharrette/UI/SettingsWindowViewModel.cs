@@ -11,6 +11,12 @@ namespace ArchSmarterCharrette.UI
     {
         private readonly RenderSettingsManager _settingsManager;
 
+        /// <summary>
+        /// Set while ReloadFromDisk is repopulating bound values, so the property
+        /// setters don't write what they just read straight back to the file.
+        /// </summary>
+        private bool _suppressPersist;
+
         public SettingsWindowViewModel()
         {
             _settingsManager = new RenderSettingsManager();
@@ -44,7 +50,8 @@ namespace ArchSmarterCharrette.UI
             {
                 _apiKey = value;
                 OnPropertyChanged();
-                _settingsManager.SetGeminiApiKey(value);
+                if (!_suppressPersist)
+                    _settingsManager.SetGeminiApiKey(value);
             }
         }
 
@@ -60,7 +67,8 @@ namespace ArchSmarterCharrette.UI
             {
                 _selectedModel = value;
                 OnPropertyChanged();
-                _settingsManager.SetModelName(value);
+                if (!_suppressPersist && value != null)
+                    _settingsManager.SetModelName(value);
             }
         }
 
@@ -74,7 +82,8 @@ namespace ArchSmarterCharrette.UI
             {
                 _outputFolder = value;
                 OnPropertyChanged();
-                _settingsManager.SetOutputFolder(value);
+                if (!_suppressPersist)
+                    _settingsManager.SetOutputFolder(value);
             }
         }
 
@@ -88,7 +97,8 @@ namespace ArchSmarterCharrette.UI
             {
                 _promptLibraryFolder = value;
                 OnPropertyChanged();
-                _settingsManager.SetPromptLibraryFolder(value);
+                if (!_suppressPersist)
+                    _settingsManager.SetPromptLibraryFolder(value);
                 RefreshLibraryFiles();
             }
         }
@@ -104,7 +114,7 @@ namespace ArchSmarterCharrette.UI
             {
                 _selectedLibraryFile = value;
                 OnPropertyChanged();
-                if (value != null)
+                if (!_suppressPersist && value != null)
                     _settingsManager.SetPromptLibraryFile(value);
             }
         }
@@ -119,6 +129,39 @@ namespace ArchSmarterCharrette.UI
                 if (string.IsNullOrEmpty(_selectedLibraryFile))
                     return "";
                 return Path.Combine(_promptLibraryFolder, _selectedLibraryFile);
+            }
+        }
+
+        /// <summary>
+        /// Re-reads the settings file and refreshes every bound value. Called when
+        /// the window regains focus after the user has edited the JSON by hand, so
+        /// this window's stale in-memory copy doesn't overwrite their changes on
+        /// the next save.
+        /// </summary>
+        public void ReloadFromDisk()
+        {
+            _suppressPersist = true;
+            try
+            {
+                _settingsManager.ReloadSettings();
+
+                ApiKey = _settingsManager.GetGeminiApiKey();
+
+                string savedModel = _settingsManager.GetModelName();
+                AvailableModels.Clear();
+                foreach (string model in _settingsManager.GetAvailableModels())
+                    AvailableModels.Add(model);
+                SelectedModel = AvailableModels.Contains(savedModel)
+                    ? savedModel
+                    : AvailableModels.FirstOrDefault();
+
+                OutputFolder = _settingsManager.GetOutputFolder();
+                PromptLibraryFolder = _settingsManager.GetPromptLibraryFolder();
+                RefreshLibraryFiles();
+            }
+            finally
+            {
+                _suppressPersist = false;
             }
         }
 

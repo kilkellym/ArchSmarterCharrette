@@ -238,7 +238,7 @@
                     <Button Grid.Column="2"
                             x:Name="BtnToggleApiKey"
                             Content="Show"
-                            Width="75"
+                            Width="85"
                             Height="32"
                             Style="{StaticResource SecondaryButton}"
                             Click="BtnToggleApiKey_Click" />
@@ -246,10 +246,24 @@
 
                 <TextBlock Grid.Row="3" Text="Model"
                            Style="{StaticResource LabelStyle}" />
-                <ComboBox Grid.Row="4"
-                          Style="{StaticResource DarkComboBox}"
-                          ItemsSource="{Binding AvailableModels}"
-                          SelectedItem="{Binding SelectedModel}" />
+                <Grid Grid.Row="4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="8" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <ComboBox Grid.Column="0"
+                              Style="{StaticResource DarkComboBox}"
+                              ItemsSource="{Binding AvailableModels}"
+                              SelectedItem="{Binding SelectedModel}" />
+                    <Button Grid.Column="2"
+                            Content="Edit"
+                            Width="85"
+                            Height="32"
+                            ToolTip="Open Charrette.json to add or remove models"
+                            Style="{StaticResource SecondaryButton}"
+                            Click="BtnEditModels_Click" />
+                </Grid>
 
                 <!-- Output folder -->
                 <TextBlock Grid.Row="6" Text="Image Save Location"
@@ -275,10 +289,23 @@
                 <!-- Prompt Library section -->
                 <TextBlock Grid.Row="9" Text="Prompt Library Folder"
                            Style="{StaticResource LabelStyle}" />
-                <TextBox Grid.Row="10"
-                         Height="30"
-                         Style="{StaticResource DarkTextBox}"
-                         Text="{Binding PromptLibraryFolder, UpdateSourceTrigger=LostFocus}" />
+                <Grid Grid.Row="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="8" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <TextBox Grid.Column="0"
+                             Height="30"
+                             Style="{StaticResource DarkTextBox}"
+                             Text="{Binding PromptLibraryFolder, UpdateSourceTrigger=LostFocus}" />
+                    <Button Grid.Column="2"
+                            Content="Browse"
+                            Width="85"
+                            Height="32"
+                            Style="{StaticResource SecondaryButton}"
+                            Click="BtnBrowsePromptLibraryFolder_Click" />
+                </Grid>
 
                 <TextBlock Grid.Row="12" Text="Prompt Library File"
                            Style="{StaticResource LabelStyle}" />
@@ -294,7 +321,7 @@
                               SelectedItem="{Binding SelectedLibraryFile}" />
                     <Button Grid.Column="2"
                             Content="Edit"
-                            Width="75"
+                            Width="85"
                             Height="32"
                             Style="{StaticResource SecondaryButton}"
                             Click="BtnEditPromptLibrary_Click" />
