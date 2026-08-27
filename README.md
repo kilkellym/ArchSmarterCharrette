@@ -4,6 +4,8 @@ An open-source Revit add-in that turns any Revit view into a rendered architectu
 
 Your API key stays on your machine. It is stored locally in `%AppData%\ArchSmarter\Charrette\` and is never logged or sent anywhere except Google's API. Charrette calls the Google AI APIs directly — no intermediary server, no telemetry.
 
+Download the latest version here: https://github.com/kilkellym/ArchSmarterCharrette/releases
+
 ---
 
 ## Features
