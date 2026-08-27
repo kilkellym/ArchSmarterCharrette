@@ -1,0 +1,211 @@
+{
+  "Items": [
+    {
+      "Category": "Style",
+      "DisplayName": "Default style",
+      "Phrase": ""
+    },
+    {
+      "Category": "Style",
+      "DisplayName": "Concept art",
+      "Phrase": "Render as digital concept art with painterly detail and cinematic composition."
+    },
+    {
+      "Category": "Style",
+      "DisplayName": "Matte painting",
+      "Phrase": "Render as a matte painting with deep atmospheric perspective and fine detail."
+    },
+    {
+      "Category": "Style",
+      "DisplayName": "Photoreal render",
+      "Phrase": "Render as a photorealistic image with accurate materials, lighting, and reflections."
+    },
+    {
+      "Category": "Style",
+      "DisplayName": "Graphic novel",
+      "Phrase": "Render in a graphic-novel style with bold inked outlines and dramatic flat color."
+    },
+    {
+      "Category": "Lighting",
+      "DisplayName": "Default lighting",
+      "Phrase": ""
+    },
+    {
+      "Category": "Lighting",
+      "DisplayName": "Neon glow",
+      "Phrase": "Use saturated neon lighting with magenta and cyan glow reflecting off surfaces."
+    },
+    {
+      "Category": "Lighting",
+      "DisplayName": "Holographic ambient",
+      "Phrase": "Use soft holographic ambient light with shifting blue and violet tones."
+    },
+    {
+      "Category": "Lighting",
+      "DisplayName": "Harsh industrial",
+      "Phrase": "Use harsh industrial lighting with hard spotlights and deep shadow."
+    },
+    {
+      "Category": "Lighting",
+      "DisplayName": "Bioluminescent",
+      "Phrase": "Use cool bioluminescent lighting that glows from within surfaces and edges."
+    },
+    {
+      "Category": "Material",
+      "DisplayName": "As modeled",
+      "Phrase": ""
+    },
+    {
+      "Category": "Material",
+      "DisplayName": "Brushed metal and glass",
+      "Phrase": "Apply brushed metal panels and tinted glass as the dominant materials."
+    },
+    {
+      "Category": "Material",
+      "DisplayName": "Weathered hull plating",
+      "Phrase": "Apply weathered hull plating with rivets, scorch marks, and exposed conduit."
+    },
+    {
+      "Category": "Material",
+      "DisplayName": "Glowing composite",
+      "Phrase": "Apply smooth composite panels with embedded glowing seams and circuitry."
+    },
+    {
+      "Category": "Material",
+      "DisplayName": "Carbon and chrome",
+      "Phrase": "Apply matte carbon fiber and polished chrome surfaces."
+    },
+    {
+      "Category": "Background",
+      "DisplayName": "As is",
+      "Phrase": ""
+    },
+    {
+      "Category": "Background",
+      "DisplayName": "Megacity skyline",
+      "Phrase": "Set the background to a dense futuristic megacity skyline with towering illuminated structures."
+    },
+    {
+      "Category": "Background",
+      "DisplayName": "Orbital station",
+      "Phrase": "Set the background to the interior of an orbital station with a planet visible through viewports."
+    },
+    {
+      "Category": "Background",
+      "DisplayName": "Terraformed wasteland",
+      "Phrase": "Set the background to a barren terraformed wasteland under an alien sky."
+    },
+    {
+      "Category": "Background",
+      "DisplayName": "Spaceport",
+      "Phrase": "Place the building in a busy spaceport with docked craft and elevated transit lines."
+    },
+    {
+      "Category": "Entourage",
+      "DisplayName": "No entourage",
+      "Phrase": ""
+    },
+    {
+      "Category": "Entourage",
+      "DisplayName": "Drones and hovercraft",
+      "Phrase": "Add hovering drones and passing hovercraft through the scene."
+    },
+    {
+      "Category": "Entourage",
+      "DisplayName": "Androids",
+      "Phrase": "Add androids and robotic figures moving through the scene."
+    },
+    {
+      "Category": "Entourage",
+      "DisplayName": "Spacesuited crew",
+      "Phrase": "Add figures in spacesuits and exosuits to convey scale and activity."
+    },
+    {
+      "Category": "Entourage",
+      "DisplayName": "Empty and quiet",
+      "Phrase": "Keep the scene unpopulated with no figures or vehicles."
+    },
+    {
+      "Category": "Weather",
+      "DisplayName": "As is",
+      "Phrase": ""
+    },
+    {
+      "Category": "Weather",
+      "DisplayName": "Acid rain",
+      "Phrase": "Render with acid rain and slick reflective surfaces."
+    },
+    {
+      "Category": "Weather",
+      "DisplayName": "Ash haze",
+      "Phrase": "Add a drifting ash haze that softens distant structures."
+    },
+    {
+      "Category": "Weather",
+      "DisplayName": "Ion storm",
+      "Phrase": "Add an ion storm with crackling charged particles in the air."
+    },
+    {
+      "Category": "Weather",
+      "DisplayName": "Toxic fog",
+      "Phrase": "Add a low-lying toxic fog with a faint colored tint."
+    }
+  ],
+  "Themes": [
+    {
+      "Name": "Manual",
+      "Selections": {
+        "Style": "Default style",
+        "Lighting": "Default lighting",
+        "Material": "As modeled",
+        "Background": "As is",
+        "Entourage": "No entourage",
+        "Weather": "As is"
+      }
+    },
+    {
+      "Name": "Cyberpunk",
+      "Selections": {
+        "Style": "Concept art",
+        "Lighting": "Neon glow",
+        "Material": "Brushed metal and glass",
+        "Background": "Megacity skyline",
+        "Entourage": "Drones and hovercraft",
+        "Weather": "Acid rain"
+      }
+    },
+    {
+      "Name": "Clean utopian",
+      "Selections": {
+        "Style": "Photoreal render",
+        "Lighting": "Holographic ambient",
+        "Material": "Glowing composite",
+        "Background": "Orbital station",
+        "Entourage": "Androids",
+        "Weather": "As is"
+      }
+    },
+    {
+      "Name": "Used future",
+      "Selections": {
+        "Style": "Matte painting",
+        "Lighting": "Harsh industrial",
+        "Material": "Weathered hull plating",
+        "Background": "Spaceport",
+        "Entourage": "Spacesuited crew",
+        "Weather": "Ash haze"
+      }
+    },
+    {
+      "Name": "Generic futuristic",
+      "Selections": {
+        "Style": "Concept art",
+        "Lighting": "Bioluminescent",
+        "Material": "Carbon and chrome",
+        "Background": "Megacity skyline",
+        "Entourage": "Androids",
+        "Weather": "As is"
+      }
+    }
+  ]
+}

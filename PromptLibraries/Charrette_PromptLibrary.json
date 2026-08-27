@@ -1,0 +1,309 @@
+{
+  "Items": [
+    {
+      "Category": "Style",
+      "DisplayName": "Default style",
+      "Phrase": ""
+    },
+    {
+      "Category": "Style",
+      "DisplayName": "Watercolor",
+      "Phrase": "Render in a loose watercolor style with soft washes and visible brushstrokes."
+    },
+    {
+      "Category": "Style",
+      "DisplayName": "Pencil sketch",
+      "Phrase": "Render as a hand-drawn pencil sketch with crosshatching and graphite shading."
+    },
+    {
+      "Category": "Style",
+      "DisplayName": "Oil painting",
+      "Phrase": "Render as an oil painting with rich impasto texture and painterly strokes."
+    },
+    {
+      "Category": "Style",
+      "DisplayName": "Photorealistic",
+      "Phrase": "Render as a photorealistic image with accurate materials, lighting, and reflections."
+    },
+    {
+      "Category": "Style",
+      "DisplayName": "Cel shading",
+      "Phrase": "Render in a cel-shaded style with flat colors and bold outlines."
+    },
+    {
+      "Category": "Style",
+      "DisplayName": "Ink wash",
+      "Phrase": "Render in an ink wash style with flowing black ink gradients on white paper."
+    },
+    {
+      "Category": "Style",
+      "DisplayName": "Architectural marker",
+      "Phrase": "Render as an architectural marker presentation drawing with bold strokes and flat color fills."
+    },
+    {
+      "Category": "Style",
+      "DisplayName": "White model",
+      "Phrase": "Render as a matte white massing model with no applied materials or textures."
+    },
+    {
+      "Category": "Style",
+      "DisplayName": "Technical line drawing",
+      "Phrase": "Render as a clean technical line drawing with crisp linework and no shading."
+    },
+    {
+      "Category": "Style",
+      "DisplayName": "Blueprint",
+      "Phrase": "Render as a blueprint with white linework on a deep blue ground."
+    },
+    {
+      "Category": "Style",
+      "DisplayName": "Charcoal",
+      "Phrase": "Render as a charcoal drawing with smudged tones and high contrast."
+    },
+    {
+      "Category": "Style",
+      "DisplayName": "Gouache",
+      "Phrase": "Render in a flat gouache style with opaque matte color and graphic shapes."
+    },
+    {
+      "Category": "Style",
+      "DisplayName": "Surprise me",
+      "Phrase": "Render in an unexpected and visually striking artistic medium of your own choosing, one not typically used for architectural imagery, and commit fully to that medium."
+    },
+    {
+      "Category": "Lighting",
+      "DisplayName": "Default lighting",
+      "Phrase": ""
+    },
+    {
+      "Category": "Lighting",
+      "DisplayName": "Golden hour",
+      "Phrase": "Use warm golden-hour sunlight with long soft shadows."
+    },
+    {
+      "Category": "Lighting",
+      "DisplayName": "Overcast",
+      "Phrase": "Use soft diffused overcast lighting with minimal shadows."
+    },
+    {
+      "Category": "Lighting",
+      "DisplayName": "Dramatic",
+      "Phrase": "Use dramatic high-contrast lighting with deep shadows and bright highlights."
+    },
+    {
+      "Category": "Lighting",
+      "DisplayName": "Night scene",
+      "Phrase": "Render as a night scene with artificial lighting, warm interior glow, and cool ambient moonlight."
+    },
+    {
+      "Category": "Lighting",
+      "DisplayName": "Studio",
+      "Phrase": "Use clean studio lighting with even illumination and soft shadows."
+    },
+    {
+      "Category": "Material",
+      "DisplayName": "As modeled",
+      "Phrase": ""
+    },
+    {
+      "Category": "Material",
+      "DisplayName": "Concrete and glass",
+      "Phrase": "Apply exposed concrete and floor-to-ceiling glass as the dominant materials."
+    },
+    {
+      "Category": "Material",
+      "DisplayName": "Warm wood",
+      "Phrase": "Apply warm natural wood tones and timber cladding to surfaces."
+    },
+    {
+      "Category": "Material",
+      "DisplayName": "White plaster",
+      "Phrase": "Apply clean white plaster and stucco to all wall surfaces."
+    },
+    {
+      "Category": "Material",
+      "DisplayName": "Brick and steel",
+      "Phrase": "Apply red brick masonry with exposed steel structural elements."
+    },
+    {
+      "Category": "Material",
+      "DisplayName": "Weathered patina",
+      "Phrase": "Apply weathered and aged patina finishes such as oxidized copper and reclaimed wood."
+    },
+    {
+      "Category": "Material",
+      "DisplayName": "Surprise me",
+      "Phrase": "Apply an unexpected but cohesive material palette of your own choosing to the building surfaces."
+    },
+    {
+      "Category": "Background",
+      "DisplayName": "As is",
+      "Phrase": ""
+    },
+    {
+      "Category": "Background",
+      "DisplayName": "Clear sky",
+      "Phrase": "Set the background to a clear blue sky with minimal clouds."
+    },
+    {
+      "Category": "Background",
+      "DisplayName": "Landscaped",
+      "Phrase": "Add lush landscaping with mature trees, shrubs, and ground cover around the building."
+    },
+    {
+      "Category": "Background",
+      "DisplayName": "Urban context",
+      "Phrase": "Place the building in an urban streetscape with sidewalks, neighboring buildings, and street trees."
+    },
+    {
+      "Category": "Background",
+      "DisplayName": "Mountainous",
+      "Phrase": "Set the background to a mountainous landscape with distant peaks and evergreen trees."
+    },
+    {
+      "Category": "Background",
+      "DisplayName": "Waterfront",
+      "Phrase": "Place the building on a waterfront setting with a reflective body of water in the foreground."
+    },
+    {
+      "Category": "Entourage",
+      "DisplayName": "No entourage",
+      "Phrase": ""
+    },
+    {
+      "Category": "Entourage",
+      "DisplayName": "Scale figures",
+      "Phrase": "Add a few scale figures of people standing and walking to convey human scale."
+    },
+    {
+      "Category": "Entourage",
+      "DisplayName": "Busy and lively",
+      "Phrase": "Populate the scene with pedestrians, small groups, and visible activity."
+    },
+    {
+      "Category": "Entourage",
+      "DisplayName": "Vehicles",
+      "Phrase": "Add parked and moving vehicles appropriate to the setting."
+    },
+    {
+      "Category": "Entourage",
+      "DisplayName": "Empty and quiet",
+      "Phrase": "Keep the scene unpopulated with no people or vehicles."
+    },
+    {
+      "Category": "Weather",
+      "DisplayName": "As is",
+      "Phrase": ""
+    },
+    {
+      "Category": "Weather",
+      "DisplayName": "Light fog",
+      "Phrase": "Add a light atmospheric fog that softens distant elements and adds depth."
+    },
+    {
+      "Category": "Weather",
+      "DisplayName": "Rain",
+      "Phrase": "Render with light rain and wet reflective surfaces."
+    },
+    {
+      "Category": "Weather",
+      "DisplayName": "Snow",
+      "Phrase": "Add falling snow with a light accumulation on surfaces."
+    },
+    {
+      "Category": "Weather",
+      "DisplayName": "Morning mist",
+      "Phrase": "Add a low morning mist hugging the ground."
+    }
+  ],
+  "Themes": [
+    {
+      "Name": "Manual",
+      "Selections": {
+        "Style": "Default style",
+        "Lighting": "Default lighting",
+        "Material": "As modeled",
+        "Background": "As is",
+        "Entourage": "No entourage",
+        "Weather": "As is"
+      }
+    },
+    {
+      "Name": "Golden hour hero",
+      "Selections": {
+        "Style": "Photorealistic",
+        "Lighting": "Golden hour",
+        "Material": "Concrete and glass",
+        "Background": "Landscaped",
+        "Entourage": "Scale figures",
+        "Weather": "As is"
+      }
+    },
+    {
+      "Name": "Massing study",
+      "Selections": {
+        "Style": "White model",
+        "Lighting": "Studio",
+        "Material": "As modeled",
+        "Background": "As is",
+        "Entourage": "No entourage",
+        "Weather": "As is"
+      }
+    },
+    {
+      "Name": "Urban day",
+      "Selections": {
+        "Style": "Photorealistic",
+        "Lighting": "Overcast",
+        "Material": "Brick and steel",
+        "Background": "Urban context",
+        "Entourage": "Busy and lively",
+        "Weather": "As is"
+      }
+    },
+    {
+      "Name": "Concept sketch",
+      "Selections": {
+        "Style": "Architectural marker",
+        "Lighting": "Default lighting",
+        "Material": "As modeled",
+        "Background": "As is",
+        "Entourage": "Scale figures",
+        "Weather": "As is"
+      }
+    },
+    {
+      "Name": "Night exterior",
+      "Selections": {
+        "Style": "Photorealistic",
+        "Lighting": "Night scene",
+        "Material": "Concrete and glass",
+        "Background": "Urban context",
+        "Entourage": "Scale figures",
+        "Weather": "As is"
+      }
+    },
+    {
+      "Name": "Style wildcard",
+      "Selections": {
+        "Style": "Surprise me",
+        "Lighting": "Golden hour",
+        "Material": "As modeled",
+        "Background": "As is",
+        "Entourage": "Scale figures",
+        "Weather": "As is"
+      }
+    },
+    {
+      "Name": "Material wildcard",
+      "Selections": {
+        "Style": "Photorealistic",
+        "Lighting": "Golden hour",
+        "Material": "Surprise me",
+        "Background": "As is",
+        "Entourage": "Scale figures",
+        "Weather": "As is"
+      }
+    }
+  ]
+}

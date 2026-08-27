@@ -1,0 +1,231 @@
+{
+  "Items": [
+    {
+      "Category": "Style",
+      "DisplayName": "Default style",
+      "Phrase": ""
+    },
+    {
+      "Category": "Style",
+      "DisplayName": "Photorealistic",
+      "Phrase": "Render as a photorealistic image with accurate materials, lighting, and reflections."
+    },
+    {
+      "Category": "Style",
+      "DisplayName": "Concept art",
+      "Phrase": "Render as digital concept art with painterly detail and cinematic composition."
+    },
+    {
+      "Category": "Style",
+      "DisplayName": "Architectural illustration",
+      "Phrase": "Render as a measured architectural illustration with precise linework and watercolor wash."
+    },
+    {
+      "Category": "Style",
+      "DisplayName": "Black and white photo",
+      "Phrase": "Render as a black-and-white photograph with rich tonal contrast."
+    },
+    {
+      "Category": "Lighting",
+      "DisplayName": "Default lighting",
+      "Phrase": ""
+    },
+    {
+      "Category": "Lighting",
+      "DisplayName": "Harsh midday",
+      "Phrase": "Use harsh midday sun with hard shadows and bright highlights."
+    },
+    {
+      "Category": "Lighting",
+      "DisplayName": "Soft daylight",
+      "Phrase": "Use soft natural daylight with gentle shadows."
+    },
+    {
+      "Category": "Lighting",
+      "DisplayName": "Golden hour",
+      "Phrase": "Use warm golden-hour sunlight with long soft shadows."
+    },
+    {
+      "Category": "Lighting",
+      "DisplayName": "Neon night",
+      "Phrase": "Use mixed artificial night light from storefront neon, signage, and headlights."
+    },
+    {
+      "Category": "Lighting",
+      "DisplayName": "Overcast",
+      "Phrase": "Use soft diffused overcast lighting with minimal shadows."
+    },
+    {
+      "Category": "Material",
+      "DisplayName": "As modeled",
+      "Phrase": ""
+    },
+    {
+      "Category": "Material",
+      "DisplayName": "Glass curtain wall",
+      "Phrase": "Apply a sleek glass curtain wall with slim mullions and reflective panels."
+    },
+    {
+      "Category": "Material",
+      "DisplayName": "Prewar masonry",
+      "Phrase": "Apply prewar masonry with limestone detailing and punched windows."
+    },
+    {
+      "Category": "Material",
+      "DisplayName": "Brick and cast iron",
+      "Phrase": "Apply red brick with cast-iron storefront facades."
+    },
+    {
+      "Category": "Material",
+      "DisplayName": "Concrete and steel",
+      "Phrase": "Apply board-formed concrete with exposed steel structure."
+    },
+    {
+      "Category": "Material",
+      "DisplayName": "Corten and metal panel",
+      "Phrase": "Apply weathering corten steel and modern metal panel cladding."
+    },
+    {
+      "Category": "Background",
+      "DisplayName": "As is",
+      "Phrase": ""
+    },
+    {
+      "Category": "Background",
+      "DisplayName": "City skyline",
+      "Phrase": "Set the background to a dense city skyline seen at a distance."
+    },
+    {
+      "Category": "Background",
+      "DisplayName": "Street canyon",
+      "Phrase": "Place the building in a street canyon with the view looking up between tall buildings."
+    },
+    {
+      "Category": "Background",
+      "DisplayName": "Rowhouse block",
+      "Phrase": "Place the building on a dense rowhouse block with stoops and street trees."
+    },
+    {
+      "Category": "Background",
+      "DisplayName": "Plaza and park edge",
+      "Phrase": "Place the building at the edge of an urban plaza or park."
+    },
+    {
+      "Category": "Background",
+      "DisplayName": "Elevated rail and bridge",
+      "Phrase": "Place the building near an elevated rail line and steel bridge."
+    },
+    {
+      "Category": "Background",
+      "DisplayName": "Waterfront across the river",
+      "Phrase": "Set the building on a waterfront with the city skyline across the river."
+    },
+    {
+      "Category": "Entourage",
+      "DisplayName": "No entourage",
+      "Phrase": ""
+    },
+    {
+      "Category": "Entourage",
+      "DisplayName": "Busy sidewalks",
+      "Phrase": "Populate the scene with pedestrians, crowds, and visible street activity."
+    },
+    {
+      "Category": "Entourage",
+      "DisplayName": "Street life",
+      "Phrase": "Add moderate pedestrian activity and street life."
+    },
+    {
+      "Category": "Entourage",
+      "DisplayName": "Traffic",
+      "Phrase": "Add moving and parked cars, taxis, and buses appropriate to the street."
+    },
+    {
+      "Category": "Entourage",
+      "DisplayName": "Empty and quiet",
+      "Phrase": "Keep the scene unpopulated and quiet."
+    },
+    {
+      "Category": "Weather",
+      "DisplayName": "As is",
+      "Phrase": ""
+    },
+    {
+      "Category": "Weather",
+      "DisplayName": "Rain-slick streets",
+      "Phrase": "Add rain with wet reflective asphalt and slick streets."
+    },
+    {
+      "Category": "Weather",
+      "DisplayName": "Morning haze",
+      "Phrase": "Add a soft morning haze that softens the distant skyline."
+    },
+    {
+      "Category": "Weather",
+      "DisplayName": "Light snow",
+      "Phrase": "Add light snow settling on streets and surfaces."
+    },
+    {
+      "Category": "Weather",
+      "DisplayName": "Clear sky",
+      "Phrase": "Set a clear blue sky."
+    }
+  ],
+  "Themes": [
+    {
+      "Name": "Manual",
+      "Selections": {
+        "Style": "Default style",
+        "Lighting": "Default lighting",
+        "Material": "As modeled",
+        "Background": "As is",
+        "Entourage": "No entourage",
+        "Weather": "As is"
+      }
+    },
+    {
+      "Name": "Glass downtown",
+      "Selections": {
+        "Style": "Photorealistic",
+        "Lighting": "Harsh midday",
+        "Material": "Glass curtain wall",
+        "Background": "City skyline",
+        "Entourage": "Busy sidewalks",
+        "Weather": "Clear sky"
+      }
+    },
+    {
+      "Name": "Prewar classic",
+      "Selections": {
+        "Style": "Photorealistic",
+        "Lighting": "Soft daylight",
+        "Material": "Prewar masonry",
+        "Background": "Street canyon",
+        "Entourage": "Street life",
+        "Weather": "Morning haze"
+      }
+    },
+    {
+      "Name": "Rowhouse block",
+      "Selections": {
+        "Style": "Photorealistic",
+        "Lighting": "Golden hour",
+        "Material": "Brick and cast iron",
+        "Background": "Rowhouse block",
+        "Entourage": "Street life",
+        "Weather": "Clear sky"
+      }
+    },
+    {
+      "Name": "Rainy night",
+      "Selections": {
+        "Style": "Photorealistic",
+        "Lighting": "Neon night",
+        "Material": "Corten and metal panel",
+        "Background": "Street canyon",
+        "Entourage": "Traffic",
+        "Weather": "Rain-slick streets"
+      }
+    }
+  ]
+}

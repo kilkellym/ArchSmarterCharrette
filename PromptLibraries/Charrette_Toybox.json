@@ -1,0 +1,315 @@
+{
+  "Items": [
+    {
+      "Category": "Style",
+      "DisplayName": "Default style",
+      "Phrase": ""
+    },
+    {
+      "Category": "Style",
+      "DisplayName": "Folded paper",
+      "Phrase": "Render as a folded paper origami model with crisp creases and flat angular planes."
+    },
+    {
+      "Category": "Style",
+      "DisplayName": "Pixel art",
+      "Phrase": "Render as low-resolution pixel art built from a grid of square pixels with a limited color palette."
+    },
+    {
+      "Category": "Style",
+      "DisplayName": "Interlocking brick",
+      "Phrase": "Render as a model built from interlocking plastic toy bricks with visible studs and stepped edges."
+    },
+    {
+      "Category": "Style",
+      "DisplayName": "Voxel blocks",
+      "Phrase": "Render as a cubic voxel world built from blocks with low-resolution block textures."
+    },
+    {
+      "Category": "Style",
+      "DisplayName": "Sculpted clay",
+      "Phrase": "Render as a sculpted plasticine clay model with soft rounded forms and visible fingerprints."
+    },
+    {
+      "Category": "Style",
+      "DisplayName": "Knitted wool",
+      "Phrase": "Render as a knitted and felted wool model with visible stitches and soft yarn texture."
+    },
+    {
+      "Category": "Style",
+      "DisplayName": "Gingerbread",
+      "Phrase": "Render as a baked gingerbread model with piped icing trim and candy detailing."
+    },
+    {
+      "Category": "Style",
+      "DisplayName": "Stained glass",
+      "Phrase": "Render as a leaded stained-glass panel with colored glass shapes and bold black came outlines."
+    },
+    {
+      "Category": "Lighting",
+      "DisplayName": "Default lighting",
+      "Phrase": ""
+    },
+    {
+      "Category": "Lighting",
+      "DisplayName": "Soft studio",
+      "Phrase": "Use soft studio lighting with even illumination and gentle shadows."
+    },
+    {
+      "Category": "Lighting",
+      "DisplayName": "Flat and even",
+      "Phrase": "Use flat even lighting with minimal shadow."
+    },
+    {
+      "Category": "Lighting",
+      "DisplayName": "Warm and cozy",
+      "Phrase": "Use warm cozy light with a soft inviting glow."
+    },
+    {
+      "Category": "Lighting",
+      "DisplayName": "Backlit glow",
+      "Phrase": "Use bright backlight that glows through the surfaces from behind."
+    },
+    {
+      "Category": "Material",
+      "DisplayName": "As modeled",
+      "Phrase": ""
+    },
+    {
+      "Category": "Material",
+      "DisplayName": "Folded paper",
+      "Phrase": "Apply folded paper and cardstock surfaces with visible creases and seams."
+    },
+    {
+      "Category": "Material",
+      "DisplayName": "Pixel blocks",
+      "Phrase": "Apply blocky pixelated surfaces with a limited flat color palette."
+    },
+    {
+      "Category": "Material",
+      "DisplayName": "Plastic brick",
+      "Phrase": "Apply glossy molded plastic brick surfaces with visible studs."
+    },
+    {
+      "Category": "Material",
+      "DisplayName": "Voxel blocks",
+      "Phrase": "Apply cubic voxel surfaces with low-resolution tiled block textures."
+    },
+    {
+      "Category": "Material",
+      "DisplayName": "Plasticine clay",
+      "Phrase": "Apply soft plasticine clay surfaces with a matte sculpted finish."
+    },
+    {
+      "Category": "Material",
+      "DisplayName": "Knitted yarn",
+      "Phrase": "Apply knitted and felted wool yarn surfaces with visible stitches."
+    },
+    {
+      "Category": "Material",
+      "DisplayName": "Gingerbread and icing",
+      "Phrase": "Apply baked gingerbread surfaces with piped white icing and candy accents."
+    },
+    {
+      "Category": "Material",
+      "DisplayName": "Colored glass",
+      "Phrase": "Apply colored glass panels separated by dark leaded came."
+    },
+    {
+      "Category": "Background",
+      "DisplayName": "As is",
+      "Phrase": ""
+    },
+    {
+      "Category": "Background",
+      "DisplayName": "Tabletop set",
+      "Phrase": "Set the building on a small handcrafted tabletop set."
+    },
+    {
+      "Category": "Background",
+      "DisplayName": "Brick baseplate",
+      "Phrase": "Set the building on a flat studded toy-brick baseplate."
+    },
+    {
+      "Category": "Background",
+      "DisplayName": "Pixel landscape",
+      "Phrase": "Set the background to a flat pixel-art landscape with blocky scenery."
+    },
+    {
+      "Category": "Background",
+      "DisplayName": "Blocky terrain",
+      "Phrase": "Set the background to blocky cubic voxel terrain with stepped hills."
+    },
+    {
+      "Category": "Background",
+      "DisplayName": "Glass cathedral wall",
+      "Phrase": "Set the building within a tall stained-glass cathedral window."
+    },
+    {
+      "Category": "Entourage",
+      "DisplayName": "No entourage",
+      "Phrase": ""
+    },
+    {
+      "Category": "Entourage",
+      "DisplayName": "Paper figures",
+      "Phrase": "Add small folded paper figures to convey scale."
+    },
+    {
+      "Category": "Entourage",
+      "DisplayName": "Pixel sprites",
+      "Phrase": "Add small pixel-art sprite figures to the scene."
+    },
+    {
+      "Category": "Entourage",
+      "DisplayName": "Brick minifigures",
+      "Phrase": "Add small interlocking-brick toy figures to the scene."
+    },
+    {
+      "Category": "Entourage",
+      "DisplayName": "Blocky characters",
+      "Phrase": "Add blocky cubic voxel characters to the scene."
+    },
+    {
+      "Category": "Entourage",
+      "DisplayName": "Clay figures",
+      "Phrase": "Add small sculpted clay figures to convey scale."
+    },
+    {
+      "Category": "Entourage",
+      "DisplayName": "Felted figures",
+      "Phrase": "Add small felted wool figures to the scene."
+    },
+    {
+      "Category": "Entourage",
+      "DisplayName": "Candy figures",
+      "Phrase": "Add small candy and gingerbread figures to the scene."
+    },
+    {
+      "Category": "Weather",
+      "DisplayName": "As is",
+      "Phrase": ""
+    },
+    {
+      "Category": "Weather",
+      "DisplayName": "Pixel clouds",
+      "Phrase": "Add flat pixel-art clouds to the sky."
+    },
+    {
+      "Category": "Weather",
+      "DisplayName": "Blocky clouds",
+      "Phrase": "Add blocky cubic voxel clouds to the sky."
+    },
+    {
+      "Category": "Weather",
+      "DisplayName": "Sugar snow",
+      "Phrase": "Add a light dusting of powdered-sugar snow over the scene."
+    },
+    {
+      "Category": "Weather",
+      "DisplayName": "Soft glow mist",
+      "Phrase": "Add a soft glowing mist that catches the light."
+    }
+  ],
+  "Themes": [
+    {
+      "Name": "Manual",
+      "Selections": {
+        "Style": "Default style",
+        "Lighting": "Default lighting",
+        "Material": "As modeled",
+        "Background": "As is",
+        "Entourage": "No entourage",
+        "Weather": "As is"
+      }
+    },
+    {
+      "Name": "Folded paper",
+      "Selections": {
+        "Style": "Folded paper",
+        "Lighting": "Soft studio",
+        "Material": "Folded paper",
+        "Background": "Tabletop set",
+        "Entourage": "Paper figures",
+        "Weather": "As is"
+      }
+    },
+    {
+      "Name": "Pixel art",
+      "Selections": {
+        "Style": "Pixel art",
+        "Lighting": "Flat and even",
+        "Material": "Pixel blocks",
+        "Background": "Pixel landscape",
+        "Entourage": "Pixel sprites",
+        "Weather": "Pixel clouds"
+      }
+    },
+    {
+      "Name": "Brick build",
+      "Selections": {
+        "Style": "Interlocking brick",
+        "Lighting": "Soft studio",
+        "Material": "Plastic brick",
+        "Background": "Brick baseplate",
+        "Entourage": "Brick minifigures",
+        "Weather": "As is"
+      }
+    },
+    {
+      "Name": "Voxel world",
+      "Selections": {
+        "Style": "Voxel blocks",
+        "Lighting": "Flat and even",
+        "Material": "Voxel blocks",
+        "Background": "Blocky terrain",
+        "Entourage": "Blocky characters",
+        "Weather": "Blocky clouds"
+      }
+    },
+    {
+      "Name": "Claymation",
+      "Selections": {
+        "Style": "Sculpted clay",
+        "Lighting": "Soft studio",
+        "Material": "Plasticine clay",
+        "Background": "Tabletop set",
+        "Entourage": "Clay figures",
+        "Weather": "As is"
+      }
+    },
+    {
+      "Name": "Knitted",
+      "Selections": {
+        "Style": "Knitted wool",
+        "Lighting": "Warm and cozy",
+        "Material": "Knitted yarn",
+        "Background": "Tabletop set",
+        "Entourage": "Felted figures",
+        "Weather": "As is"
+      }
+    },
+    {
+      "Name": "Gingerbread",
+      "Selections": {
+        "Style": "Gingerbread",
+        "Lighting": "Warm and cozy",
+        "Material": "Gingerbread and icing",
+        "Background": "Tabletop set",
+        "Entourage": "Candy figures",
+        "Weather": "Sugar snow"
+      }
+    },
+    {
+      "Name": "Stained glass",
+      "Selections": {
+        "Style": "Stained glass",
+        "Lighting": "Backlit glow",
+        "Material": "Colored glass",
+        "Background": "Glass cathedral wall",
+        "Entourage": "No entourage",
+        "Weather": "Soft glow mist"
+      }
+    }
+  ]
+}

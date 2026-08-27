@@ -1,0 +1,236 @@
+{
+  "Items": [
+    {
+      "Category": "Style",
+      "DisplayName": "Default style",
+      "Phrase": ""
+    },
+    {
+      "Category": "Style",
+      "DisplayName": "Concept art",
+      "Phrase": "Render as digital concept art with painterly detail and cinematic composition."
+    },
+    {
+      "Category": "Style",
+      "DisplayName": "Oil painting",
+      "Phrase": "Render as an oil painting with rich impasto texture and painterly strokes."
+    },
+    {
+      "Category": "Style",
+      "DisplayName": "Matte painting",
+      "Phrase": "Render as a matte painting with deep atmospheric perspective and fine detail."
+    },
+    {
+      "Category": "Style",
+      "DisplayName": "Storybook illustration",
+      "Phrase": "Render as a storybook illustration with warm hand-painted detail and soft edges."
+    },
+    {
+      "Category": "Lighting",
+      "DisplayName": "Default lighting",
+      "Phrase": ""
+    },
+    {
+      "Category": "Lighting",
+      "DisplayName": "Overcast and grey",
+      "Phrase": "Use cold grey overcast light with flat shadows and a bleak mood."
+    },
+    {
+      "Category": "Lighting",
+      "DisplayName": "Torchlit",
+      "Phrase": "Use warm flickering torchlight with deep pools of shadow."
+    },
+    {
+      "Category": "Lighting",
+      "DisplayName": "Ethereal glow",
+      "Phrase": "Use soft ethereal light with a luminous otherworldly glow."
+    },
+    {
+      "Category": "Lighting",
+      "DisplayName": "Shafts of light",
+      "Phrase": "Use dramatic shafts of light breaking through from above."
+    },
+    {
+      "Category": "Lighting",
+      "DisplayName": "Moonlit",
+      "Phrase": "Use cool moonlight with silver highlights and deep blue shadow."
+    },
+    {
+      "Category": "Material",
+      "DisplayName": "As modeled",
+      "Phrase": ""
+    },
+    {
+      "Category": "Material",
+      "DisplayName": "Weathered stone and timber",
+      "Phrase": "Apply weathered grey stone masonry and heavy aged timber to surfaces."
+    },
+    {
+      "Category": "Material",
+      "DisplayName": "Dark iron and slate",
+      "Phrase": "Apply dark forged iron and slate with a cold heavy character."
+    },
+    {
+      "Category": "Material",
+      "DisplayName": "Enchanted crystal",
+      "Phrase": "Apply glowing enchanted crystal and luminous inlaid runes to surfaces."
+    },
+    {
+      "Category": "Material",
+      "DisplayName": "Mossy ancient stone",
+      "Phrase": "Apply ancient stone overgrown with moss, lichen, and creeping vines."
+    },
+    {
+      "Category": "Material",
+      "DisplayName": "Polished marble and gold",
+      "Phrase": "Apply polished white marble with gilded gold detailing."
+    },
+    {
+      "Category": "Background",
+      "DisplayName": "As is",
+      "Phrase": ""
+    },
+    {
+      "Category": "Background",
+      "DisplayName": "Mountain stronghold",
+      "Phrase": "Set the background to rugged mountains with a fortified stronghold on the heights."
+    },
+    {
+      "Category": "Background",
+      "DisplayName": "Misty forest",
+      "Phrase": "Set the background to a dense misty ancient forest."
+    },
+    {
+      "Category": "Background",
+      "DisplayName": "Floating isles",
+      "Phrase": "Set the background to floating islands drifting in a vast magical sky."
+    },
+    {
+      "Category": "Background",
+      "DisplayName": "Coastal cliffs",
+      "Phrase": "Set the background to windswept coastal cliffs above a grey sea."
+    },
+    {
+      "Category": "Background",
+      "DisplayName": "Ruined city",
+      "Phrase": "Set the background to a sprawling ruined city reclaimed by nature."
+    },
+    {
+      "Category": "Entourage",
+      "DisplayName": "No entourage",
+      "Phrase": ""
+    },
+    {
+      "Category": "Entourage",
+      "DisplayName": "Cloaked figures",
+      "Phrase": "Add cloaked figures and travelers to convey scale and mood."
+    },
+    {
+      "Category": "Entourage",
+      "DisplayName": "Armored guards",
+      "Phrase": "Add armored guards and banners to the scene."
+    },
+    {
+      "Category": "Entourage",
+      "DisplayName": "Mounted riders",
+      "Phrase": "Add mounted riders on horseback moving through the scene."
+    },
+    {
+      "Category": "Entourage",
+      "DisplayName": "Robed mages",
+      "Phrase": "Add robed mages and ethereal figures to the scene."
+    },
+    {
+      "Category": "Entourage",
+      "DisplayName": "Empty and still",
+      "Phrase": "Keep the scene unpopulated and still."
+    },
+    {
+      "Category": "Weather",
+      "DisplayName": "As is",
+      "Phrase": ""
+    },
+    {
+      "Category": "Weather",
+      "DisplayName": "Heavy fog",
+      "Phrase": "Add a heavy rolling fog that shrouds distant elements."
+    },
+    {
+      "Category": "Weather",
+      "DisplayName": "Storm clouds",
+      "Phrase": "Add dark gathering storm clouds overhead."
+    },
+    {
+      "Category": "Weather",
+      "DisplayName": "Snowfall",
+      "Phrase": "Add steady snowfall with accumulation on surfaces."
+    },
+    {
+      "Category": "Weather",
+      "DisplayName": "Drifting embers",
+      "Phrase": "Add glowing embers and ash drifting through the air."
+    },
+    {
+      "Category": "Weather",
+      "DisplayName": "Magical mist",
+      "Phrase": "Add a faintly glowing magical mist hanging in the air."
+    }
+  ],
+  "Themes": [
+    {
+      "Name": "Manual",
+      "Selections": {
+        "Style": "Default style",
+        "Lighting": "Default lighting",
+        "Material": "As modeled",
+        "Background": "As is",
+        "Entourage": "No entourage",
+        "Weather": "As is"
+      }
+    },
+    {
+      "Name": "Grim citadel",
+      "Selections": {
+        "Style": "Oil painting",
+        "Lighting": "Overcast and grey",
+        "Material": "Weathered stone and timber",
+        "Background": "Mountain stronghold",
+        "Entourage": "Armored guards",
+        "Weather": "Storm clouds"
+      }
+    },
+    {
+      "Name": "Arcane spire",
+      "Selections": {
+        "Style": "Concept art",
+        "Lighting": "Ethereal glow",
+        "Material": "Enchanted crystal",
+        "Background": "Floating isles",
+        "Entourage": "Robed mages",
+        "Weather": "Magical mist"
+      }
+    },
+    {
+      "Name": "Enchanted forest",
+      "Selections": {
+        "Style": "Storybook illustration",
+        "Lighting": "Shafts of light",
+        "Material": "Mossy ancient stone",
+        "Background": "Misty forest",
+        "Entourage": "Cloaked figures",
+        "Weather": "Heavy fog"
+      }
+    },
+    {
+      "Name": "Ruined kingdom",
+      "Selections": {
+        "Style": "Matte painting",
+        "Lighting": "Moonlit",
+        "Material": "Mossy ancient stone",
+        "Background": "Ruined city",
+        "Entourage": "Empty and still",
+        "Weather": "Drifting embers"
+      }
+    }
+  ]
+}

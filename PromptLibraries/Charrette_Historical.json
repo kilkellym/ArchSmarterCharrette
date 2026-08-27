@@ -1,0 +1,221 @@
+{
+  "Items": [
+    {
+      "Category": "Style",
+      "DisplayName": "Default style",
+      "Phrase": ""
+    },
+    {
+      "Category": "Style",
+      "DisplayName": "Photorealistic",
+      "Phrase": "Render as a photorealistic image with accurate materials, lighting, and reflections."
+    },
+    {
+      "Category": "Style",
+      "DisplayName": "Vintage photograph",
+      "Phrase": "Render as an aged vintage photograph with period film grain and muted tones."
+    },
+    {
+      "Category": "Style",
+      "DisplayName": "Hand-tinted print",
+      "Phrase": "Render as a hand-tinted print with soft applied color over fine linework."
+    },
+    {
+      "Category": "Style",
+      "DisplayName": "Architectural illustration",
+      "Phrase": "Render as a measured architectural illustration with precise linework and watercolor wash."
+    },
+    {
+      "Category": "Lighting",
+      "DisplayName": "Default lighting",
+      "Phrase": ""
+    },
+    {
+      "Category": "Lighting",
+      "DisplayName": "Soft daylight",
+      "Phrase": "Use soft natural daylight with gentle shadows."
+    },
+    {
+      "Category": "Lighting",
+      "DisplayName": "Gas lamp",
+      "Phrase": "Use warm gas-lamp light with a soft amber cast."
+    },
+    {
+      "Category": "Lighting",
+      "DisplayName": "Dramatic shadow",
+      "Phrase": "Use dramatic directional light with strong architectural shadow."
+    },
+    {
+      "Category": "Lighting",
+      "DisplayName": "Bright midcentury",
+      "Phrase": "Use bright even midcentury daylight with clean crisp shadows."
+    },
+    {
+      "Category": "Material",
+      "DisplayName": "As modeled",
+      "Phrase": ""
+    },
+    {
+      "Category": "Material",
+      "DisplayName": "Carved stone and stained glass",
+      "Phrase": "Apply carved stone tracery and tall stained-glass windows."
+    },
+    {
+      "Category": "Material",
+      "DisplayName": "Ornate brick and ironwork",
+      "Phrase": "Apply ornate red brick with decorative cast-iron detailing."
+    },
+    {
+      "Category": "Material",
+      "DisplayName": "Polished stone and brass",
+      "Phrase": "Apply polished stone, geometric metal inlay, and brass accents."
+    },
+    {
+      "Category": "Material",
+      "DisplayName": "Glass and steel",
+      "Phrase": "Apply expansive glass curtain walls with slim steel framing."
+    },
+    {
+      "Category": "Material",
+      "DisplayName": "Wood paneling and terrazzo",
+      "Phrase": "Apply warm wood paneling and terrazzo flooring."
+    },
+    {
+      "Category": "Background",
+      "DisplayName": "As is",
+      "Phrase": ""
+    },
+    {
+      "Category": "Background",
+      "DisplayName": "Medieval town",
+      "Phrase": "Place the building in a medieval town with narrow cobbled streets."
+    },
+    {
+      "Category": "Background",
+      "DisplayName": "Victorian street",
+      "Phrase": "Place the building on a bustling Victorian high street."
+    },
+    {
+      "Category": "Background",
+      "DisplayName": "1920s cityscape",
+      "Phrase": "Place the building in a 1920s cityscape with period storefronts and signage."
+    },
+    {
+      "Category": "Background",
+      "DisplayName": "Suburban campus",
+      "Phrase": "Place the building in a landscaped midcentury suburban campus setting."
+    },
+    {
+      "Category": "Background",
+      "DisplayName": "Formal gardens",
+      "Phrase": "Set the background to formal symmetrical gardens with clipped hedges."
+    },
+    {
+      "Category": "Entourage",
+      "DisplayName": "No entourage",
+      "Phrase": ""
+    },
+    {
+      "Category": "Entourage",
+      "DisplayName": "Period figures",
+      "Phrase": "Add figures in period-appropriate dress to convey scale and era."
+    },
+    {
+      "Category": "Entourage",
+      "DisplayName": "Horse and carriage",
+      "Phrase": "Add horse-drawn carriages and period street life."
+    },
+    {
+      "Category": "Entourage",
+      "DisplayName": "Vintage automobiles",
+      "Phrase": "Add vintage automobiles appropriate to the era."
+    },
+    {
+      "Category": "Entourage",
+      "DisplayName": "Empty and quiet",
+      "Phrase": "Keep the scene unpopulated and quiet."
+    },
+    {
+      "Category": "Weather",
+      "DisplayName": "As is",
+      "Phrase": ""
+    },
+    {
+      "Category": "Weather",
+      "DisplayName": "Soft haze",
+      "Phrase": "Add a soft atmospheric haze for period mood."
+    },
+    {
+      "Category": "Weather",
+      "DisplayName": "Light rain",
+      "Phrase": "Add light rain with wet reflective streets."
+    },
+    {
+      "Category": "Weather",
+      "DisplayName": "Light snow",
+      "Phrase": "Add light snowfall settling on surfaces."
+    },
+    {
+      "Category": "Weather",
+      "DisplayName": "Clear and bright",
+      "Phrase": "Set a clear bright period sky."
+    }
+  ],
+  "Themes": [
+    {
+      "Name": "Manual",
+      "Selections": {
+        "Style": "Default style",
+        "Lighting": "Default lighting",
+        "Material": "As modeled",
+        "Background": "As is",
+        "Entourage": "No entourage",
+        "Weather": "As is"
+      }
+    },
+    {
+      "Name": "Gothic",
+      "Selections": {
+        "Style": "Architectural illustration",
+        "Lighting": "Dramatic shadow",
+        "Material": "Carved stone and stained glass",
+        "Background": "Medieval town",
+        "Entourage": "Period figures",
+        "Weather": "Soft haze"
+      }
+    },
+    {
+      "Name": "Victorian",
+      "Selections": {
+        "Style": "Hand-tinted print",
+        "Lighting": "Gas lamp",
+        "Material": "Ornate brick and ironwork",
+        "Background": "Victorian street",
+        "Entourage": "Horse and carriage",
+        "Weather": "Light rain"
+      }
+    },
+    {
+      "Name": "Art Deco",
+      "Selections": {
+        "Style": "Vintage photograph",
+        "Lighting": "Dramatic shadow",
+        "Material": "Polished stone and brass",
+        "Background": "1920s cityscape",
+        "Entourage": "Vintage automobiles",
+        "Weather": "Clear and bright"
+      }
+    },
+    {
+      "Name": "Midcentury modern",
+      "Selections": {
+        "Style": "Photorealistic",
+        "Lighting": "Bright midcentury",
+        "Material": "Glass and steel",
+        "Background": "Suburban campus",
+        "Entourage": "Vintage automobiles",
+        "Weather": "Clear and bright"
+      }
+    }
+  ]
+}

@@ -1,0 +1,211 @@
+{
+  "Items": [
+    {
+      "Category": "Style",
+      "DisplayName": "Default style",
+      "Phrase": ""
+    },
+    {
+      "Category": "Style",
+      "DisplayName": "Photorealistic",
+      "Phrase": "Render as a photorealistic image with accurate materials, lighting, and reflections."
+    },
+    {
+      "Category": "Style",
+      "DisplayName": "Watercolor",
+      "Phrase": "Render in a loose watercolor style with soft washes and visible brushstrokes."
+    },
+    {
+      "Category": "Style",
+      "DisplayName": "Architectural illustration",
+      "Phrase": "Render as a measured architectural illustration with precise linework and watercolor wash."
+    },
+    {
+      "Category": "Lighting",
+      "DisplayName": "Default lighting",
+      "Phrase": ""
+    },
+    {
+      "Category": "Lighting",
+      "DisplayName": "Soft daylight",
+      "Phrase": "Use soft natural daylight with gentle shadows."
+    },
+    {
+      "Category": "Lighting",
+      "DisplayName": "Golden hour",
+      "Phrase": "Use warm golden-hour sunlight with long soft shadows."
+    },
+    {
+      "Category": "Lighting",
+      "DisplayName": "Overcast",
+      "Phrase": "Use soft diffused overcast lighting with minimal shadows."
+    },
+    {
+      "Category": "Lighting",
+      "DisplayName": "Crisp morning",
+      "Phrase": "Use clear crisp morning light with long cool shadows."
+    },
+    {
+      "Category": "Material",
+      "DisplayName": "As modeled",
+      "Phrase": ""
+    },
+    {
+      "Category": "Material",
+      "DisplayName": "White clapboard and black shutters",
+      "Phrase": "Apply white clapboard siding with black shutters and white trim."
+    },
+    {
+      "Category": "Material",
+      "DisplayName": "Weathered cedar shingle",
+      "Phrase": "Apply weathered silver-grey cedar shingle siding."
+    },
+    {
+      "Category": "Material",
+      "DisplayName": "Red brick and white trim",
+      "Phrase": "Apply red brick masonry with white painted trim."
+    },
+    {
+      "Category": "Material",
+      "DisplayName": "Fieldstone and granite",
+      "Phrase": "Apply fieldstone and granite to walls and foundations."
+    },
+    {
+      "Category": "Material",
+      "DisplayName": "Barn-red board and batten",
+      "Phrase": "Apply barn-red board-and-batten siding."
+    },
+    {
+      "Category": "Background",
+      "DisplayName": "As is",
+      "Phrase": ""
+    },
+    {
+      "Category": "Background",
+      "DisplayName": "Village green and steeple",
+      "Phrase": "Place the building on a village green with a white church steeple nearby."
+    },
+    {
+      "Category": "Background",
+      "DisplayName": "Coastal harbor",
+      "Phrase": "Place the building at a New England coastal harbor with moored boats."
+    },
+    {
+      "Category": "Background",
+      "DisplayName": "Stone walls and farmland",
+      "Phrase": "Set the building among low stone walls and rolling farmland."
+    },
+    {
+      "Category": "Background",
+      "DisplayName": "Main Street",
+      "Phrase": "Place the building on a small New England Main Street with period storefronts."
+    },
+    {
+      "Category": "Background",
+      "DisplayName": "Hardwood forest",
+      "Phrase": "Set the background to a dense New England hardwood forest."
+    },
+    {
+      "Category": "Entourage",
+      "DisplayName": "No entourage",
+      "Phrase": ""
+    },
+    {
+      "Category": "Entourage",
+      "DisplayName": "Scale figures",
+      "Phrase": "Add a few scale figures of people to convey human scale."
+    },
+    {
+      "Category": "Entourage",
+      "DisplayName": "Quiet street life",
+      "Phrase": "Add light pedestrian activity and a few parked cars."
+    },
+    {
+      "Category": "Entourage",
+      "DisplayName": "Empty and quiet",
+      "Phrase": "Keep the scene unpopulated and quiet."
+    },
+    {
+      "Category": "Weather",
+      "DisplayName": "As is",
+      "Phrase": ""
+    },
+    {
+      "Category": "Weather",
+      "DisplayName": "Peak fall foliage",
+      "Phrase": "Set the scene in peak autumn with vivid red and orange foliage."
+    },
+    {
+      "Category": "Weather",
+      "DisplayName": "Fresh snow",
+      "Phrase": "Add fresh snow blanketing the ground and rooftops."
+    },
+    {
+      "Category": "Weather",
+      "DisplayName": "Coastal fog",
+      "Phrase": "Add a soft coastal fog drifting through the scene."
+    },
+    {
+      "Category": "Weather",
+      "DisplayName": "Clear sky",
+      "Phrase": "Set a clear blue sky."
+    }
+  ],
+  "Themes": [
+    {
+      "Name": "Manual",
+      "Selections": {
+        "Style": "Default style",
+        "Lighting": "Default lighting",
+        "Material": "As modeled",
+        "Background": "As is",
+        "Entourage": "No entourage",
+        "Weather": "As is"
+      }
+    },
+    {
+      "Name": "Coastal shingle",
+      "Selections": {
+        "Style": "Photorealistic",
+        "Lighting": "Overcast",
+        "Material": "Weathered cedar shingle",
+        "Background": "Coastal harbor",
+        "Entourage": "Scale figures",
+        "Weather": "Coastal fog"
+      }
+    },
+    {
+      "Name": "Colonial village",
+      "Selections": {
+        "Style": "Photorealistic",
+        "Lighting": "Golden hour",
+        "Material": "White clapboard and black shutters",
+        "Background": "Village green and steeple",
+        "Entourage": "Quiet street life",
+        "Weather": "Peak fall foliage"
+      }
+    },
+    {
+      "Name": "Brick Federal",
+      "Selections": {
+        "Style": "Photorealistic",
+        "Lighting": "Soft daylight",
+        "Material": "Red brick and white trim",
+        "Background": "Main Street",
+        "Entourage": "Quiet street life",
+        "Weather": "Clear sky"
+      }
+    },
+    {
+      "Name": "Country farmhouse",
+      "Selections": {
+        "Style": "Watercolor",
+        "Lighting": "Crisp morning",
+        "Material": "Barn-red board and batten",
+        "Background": "Stone walls and farmland",
+        "Entourage": "Empty and quiet",
+        "Weather": "Fresh snow"
+      }
+    }
+  ]
+}

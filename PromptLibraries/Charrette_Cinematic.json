@@ -1,0 +1,357 @@
+{
+  "Items": [
+    {
+      "Category": "Style",
+      "DisplayName": "Default style",
+      "Phrase": ""
+    },
+    {
+      "Category": "Style",
+      "DisplayName": "Anamorphic film still",
+      "Phrase": "Render as an anamorphic film still with shallow depth of field, oval bokeh, subtle horizontal lens flare, and a widescreen cinematic feel."
+    },
+    {
+      "Category": "Style",
+      "DisplayName": "35mm film",
+      "Phrase": "Render as a 35mm film frame with fine grain, gentle halation around highlights, and slightly lifted blacks."
+    },
+    {
+      "Category": "Style",
+      "DisplayName": "16mm film",
+      "Phrase": "Render as a 16mm film frame with coarse visible grain, soft resolution, and muted naturalistic color."
+    },
+    {
+      "Category": "Style",
+      "DisplayName": "Super 8",
+      "Phrase": "Render as Super 8 home movie footage with heavy warm grain, soft focus, slight vignetting, and faded nostalgic color."
+    },
+    {
+      "Category": "Style",
+      "DisplayName": "70mm epic",
+      "Phrase": "Render as a 70mm large-format film frame with deep focus, immense clarity, and a grand sense of scale."
+    },
+    {
+      "Category": "Style",
+      "DisplayName": "Vintage Technicolor",
+      "Phrase": "Render as a vintage Technicolor film frame with richly saturated dye-transfer color and glowing skin-tone warmth."
+    },
+    {
+      "Category": "Style",
+      "DisplayName": "Film noir",
+      "Phrase": "Render as a black-and-white film noir frame with hard contrast, deep blacks, and stark dramatic tone."
+    },
+    {
+      "Category": "Style",
+      "DisplayName": "Documentary handheld",
+      "Phrase": "Render as candid handheld documentary footage with natural available light and unstaged realism."
+    },
+    {
+      "Category": "Style",
+      "DisplayName": "Found footage",
+      "Phrase": "Render as raw found footage with handheld framing, available light, slight motion blur, and an unpolished amateur quality."
+    },
+    {
+      "Category": "Style",
+      "DisplayName": "Animated feature",
+      "Phrase": "Render in the style of a modern animated feature film with soft global illumination, painterly surfaces, and warm cohesive color."
+    },
+    {
+      "Category": "Style",
+      "DisplayName": "Drone aerial",
+      "Phrase": "Render as aerial drone footage with a high vantage point, wide field of view, and crisp video-like clarity."
+    },
+    {
+      "Category": "Style",
+      "DisplayName": "VHS camcorder",
+      "Phrase": "Render as 1980s VHS camcorder footage with low resolution, chroma bleed, faint horizontal tracking lines, and washed-out video color."
+    },
+    {
+      "Category": "Style",
+      "DisplayName": "PixelVision",
+      "Phrase": "Render as lo-fi 1980s toy camcorder footage with low-resolution black-and-white video texture, crushed contrast, smeary motion, and a soft vignetted frame inside black borders."
+    },
+    {
+      "Category": "Style",
+      "DisplayName": "Security camera",
+      "Phrase": "Render as fixed security camera footage with a high mounted angle, wide-lens distortion, monochrome tint, and flat surveillance-video texture."
+    },
+    {
+      "Category": "Lighting",
+      "DisplayName": "Default lighting",
+      "Phrase": ""
+    },
+    {
+      "Category": "Lighting",
+      "DisplayName": "Low-key chiaroscuro",
+      "Phrase": "Use low-key chiaroscuro lighting with a single strong source, deep shadow, and sculptural contrast."
+    },
+    {
+      "Category": "Lighting",
+      "DisplayName": "Magic hour rim light",
+      "Phrase": "Use warm magic-hour sunlight raking low across the scene with glowing rim light on edges."
+    },
+    {
+      "Category": "Lighting",
+      "DisplayName": "Blue hour",
+      "Phrase": "Use cool blue-hour twilight with soft ambient sky light and warm artificial accents beginning to glow."
+    },
+    {
+      "Category": "Lighting",
+      "DisplayName": "Sodium vapor",
+      "Phrase": "Use orange sodium-vapor streetlight with a monochromatic amber cast and pooled light below fixtures."
+    },
+    {
+      "Category": "Lighting",
+      "DisplayName": "Volumetric god rays",
+      "Phrase": "Use strong volumetric light shafts cutting through haze with visible beams and glowing edges."
+    },
+    {
+      "Category": "Lighting",
+      "DisplayName": "Silhouette backlight",
+      "Phrase": "Use strong backlight that throws the subject into near silhouette against a bright luminous background."
+    },
+    {
+      "Category": "Lighting",
+      "DisplayName": "Practicals only",
+      "Phrase": "Use only practical light sources within the scene such as windows, lamps, and signage, with warm pooled glow and dark falloff."
+    },
+    {
+      "Category": "Lighting",
+      "DisplayName": "Cold fluorescent",
+      "Phrase": "Use flat cold fluorescent lighting with a slight green cast and clinical even illumination."
+    },
+    {
+      "Category": "Material",
+      "DisplayName": "As modeled",
+      "Phrase": ""
+    },
+    {
+      "Category": "Material",
+      "DisplayName": "Wet reflective surfaces",
+      "Phrase": "Apply wet reflective finishes to ground and hard surfaces so they mirror lights and sky."
+    },
+    {
+      "Category": "Material",
+      "DisplayName": "Muted desaturated palette",
+      "Phrase": "Apply a muted desaturated material palette with restrained earthy tones and low color contrast."
+    },
+    {
+      "Category": "Material",
+      "DisplayName": "High gloss",
+      "Phrase": "Apply high-gloss reflective finishes with crisp specular highlights."
+    },
+    {
+      "Category": "Material",
+      "DisplayName": "Dusty and sun-bleached",
+      "Phrase": "Apply dusty, sun-bleached, weathered finishes with faded color and matte texture."
+    },
+    {
+      "Category": "Background",
+      "DisplayName": "As is",
+      "Phrase": ""
+    },
+    {
+      "Category": "Background",
+      "DisplayName": "Vast empty horizon",
+      "Phrase": "Set the background to a vast empty horizon with open land and an enormous sky."
+    },
+    {
+      "Category": "Background",
+      "DisplayName": "Fog-shrouded distance",
+      "Phrase": "Set the background to fade into fog with distant elements dissolving into atmosphere."
+    },
+    {
+      "Category": "Background",
+      "DisplayName": "City bokeh at night",
+      "Phrase": "Set the background to a defocused night city with soft glowing bokeh lights."
+    },
+    {
+      "Category": "Background",
+      "DisplayName": "Dramatic cloudscape",
+      "Phrase": "Set the background to a towering dramatic cloudscape with strong directional light breaking through."
+    },
+    {
+      "Category": "Background",
+      "DisplayName": "Shallow-focus blur",
+      "Phrase": "Set the background to a softly blurred shallow-focus context that isolates the subject."
+    },
+    {
+      "Category": "Entourage",
+      "DisplayName": "No entourage",
+      "Phrase": ""
+    },
+    {
+      "Category": "Entourage",
+      "DisplayName": "Lone silhouetted figure",
+      "Phrase": "Add a single small silhouetted figure to convey scale and quiet narrative."
+    },
+    {
+      "Category": "Entourage",
+      "DisplayName": "Motion-blurred crowds",
+      "Phrase": "Add crowds of pedestrians with long-exposure motion blur streaking through the scene."
+    },
+    {
+      "Category": "Entourage",
+      "DisplayName": "Figure with light",
+      "Phrase": "Add a single figure carrying a light source such as a lantern or flashlight."
+    },
+    {
+      "Category": "Entourage",
+      "DisplayName": "Empty and still",
+      "Phrase": "Keep the scene unpopulated and still."
+    },
+    {
+      "Category": "Weather",
+      "DisplayName": "As is",
+      "Phrase": ""
+    },
+    {
+      "Category": "Weather",
+      "DisplayName": "Drizzle on wet asphalt",
+      "Phrase": "Add light drizzle with wet reflective asphalt and beaded moisture on surfaces."
+    },
+    {
+      "Category": "Weather",
+      "DisplayName": "Rolling fog banks",
+      "Phrase": "Add low rolling fog banks drifting through the scene."
+    },
+    {
+      "Category": "Weather",
+      "DisplayName": "Dust motes in light",
+      "Phrase": "Add fine dust motes hanging in the air and catching shafts of light."
+    },
+    {
+      "Category": "Weather",
+      "DisplayName": "Heat shimmer",
+      "Phrase": "Add a subtle heat shimmer rising from sunlit ground surfaces."
+    },
+    {
+      "Category": "Weather",
+      "DisplayName": "Backlit snowfall",
+      "Phrase": "Add falling snow glowing against backlight with flakes catching the light."
+    }
+  ],
+  "Themes": [
+    {
+      "Name": "Manual",
+      "Selections": {
+        "Style": "Default style",
+        "Lighting": "Default lighting",
+        "Material": "As modeled",
+        "Background": "As is",
+        "Entourage": "No entourage",
+        "Weather": "As is"
+      }
+    },
+    {
+      "Name": "Noir",
+      "Selections": {
+        "Style": "Film noir",
+        "Lighting": "Low-key chiaroscuro",
+        "Material": "Wet reflective surfaces",
+        "Background": "Fog-shrouded distance",
+        "Entourage": "Lone silhouetted figure",
+        "Weather": "Drizzle on wet asphalt"
+      }
+    },
+    {
+      "Name": "Blockbuster",
+      "Selections": {
+        "Style": "Anamorphic film still",
+        "Lighting": "Magic hour rim light",
+        "Material": "High gloss",
+        "Background": "Dramatic cloudscape",
+        "Entourage": "Motion-blurred crowds",
+        "Weather": "Dust motes in light"
+      }
+    },
+    {
+      "Name": "Indie drama",
+      "Selections": {
+        "Style": "16mm film",
+        "Lighting": "Practicals only",
+        "Material": "Muted desaturated palette",
+        "Background": "Shallow-focus blur",
+        "Entourage": "Lone silhouetted figure",
+        "Weather": "As is"
+      }
+    },
+    {
+      "Name": "Epic scale",
+      "Selections": {
+        "Style": "70mm epic",
+        "Lighting": "Volumetric god rays",
+        "Material": "Dusty and sun-bleached",
+        "Background": "Vast empty horizon",
+        "Entourage": "Lone silhouetted figure",
+        "Weather": "Heat shimmer"
+      }
+    },
+    {
+      "Name": "Neon thriller",
+      "Selections": {
+        "Style": "Anamorphic film still",
+        "Lighting": "Sodium vapor",
+        "Material": "Wet reflective surfaces",
+        "Background": "City bokeh at night",
+        "Entourage": "Motion-blurred crowds",
+        "Weather": "Drizzle on wet asphalt"
+      }
+    },
+    {
+      "Name": "Quiet twilight",
+      "Selections": {
+        "Style": "35mm film",
+        "Lighting": "Blue hour",
+        "Material": "Muted desaturated palette",
+        "Background": "Fog-shrouded distance",
+        "Entourage": "Empty and still",
+        "Weather": "Rolling fog banks"
+      }
+    },
+    {
+      "Name": "Home movie",
+      "Selections": {
+        "Style": "Super 8",
+        "Lighting": "Magic hour rim light",
+        "Material": "As modeled",
+        "Background": "As is",
+        "Entourage": "Empty and still",
+        "Weather": "As is"
+      }
+    },
+    {
+      "Name": "Found footage",
+      "Selections": {
+        "Style": "Found footage",
+        "Lighting": "Cold fluorescent",
+        "Material": "As modeled",
+        "Background": "As is",
+        "Entourage": "Lone silhouetted figure",
+        "Weather": "As is"
+      }
+    },
+    {
+      "Name": "Surveillance",
+      "Selections": {
+        "Style": "Security camera",
+        "Lighting": "Cold fluorescent",
+        "Material": "As modeled",
+        "Background": "As is",
+        "Entourage": "Lone silhouetted figure",
+        "Weather": "As is"
+      }
+    },
+    {
+      "Name": "Drone reveal",
+      "Selections": {
+        "Style": "Drone aerial",
+        "Lighting": "Magic hour rim light",
+        "Material": "As modeled",
+        "Background": "Vast empty horizon",
+        "Entourage": "No entourage",
+        "Weather": "As is"
+      }
+    }
+  ]
+}
