@@ -44,8 +44,10 @@
             <Setter Property="CaretBrush" Value="{StaticResource TextPrimary}" />
             <Setter Property="BorderBrush" Value="{StaticResource InputBorder}" />
             <Setter Property="BorderThickness" Value="1" />
-            <Setter Property="Padding" Value="8,6" />
+            <Setter Property="Padding" Value="8,2" />
             <Setter Property="FontSize" Value="12" />
+            <Setter Property="MinHeight" Value="30" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="TextBox">
@@ -54,7 +56,8 @@
                                 BorderThickness="{TemplateBinding BorderThickness}"
                                 CornerRadius="4">
                             <ScrollViewer x:Name="PART_ContentHost"
-                                          Margin="{TemplateBinding Padding}" />
+                                          Margin="{TemplateBinding Padding}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
                         </Border>
                     </ControlTemplate>
                 </Setter.Value>
@@ -221,7 +224,9 @@
                     <!-- Masked view (default) -->
                     <PasswordBox x:Name="ApiKeyPasswordBox"
                                  Grid.Column="0"
-                                 Height="30"
+                                 MinHeight="30"
+                                 Padding="8,2"
+                                 VerticalContentAlignment="Center"
                                  Background="{StaticResource InputBg}"
                                  Foreground="{StaticResource TextPrimary}"
                                  BorderBrush="{StaticResource InputBorder}"
@@ -231,7 +236,6 @@
                     <!-- Plain-text view (hidden by default) -->
                     <TextBox x:Name="ApiKeyTextBox"
                              Grid.Column="0"
-                             Height="30"
                              Visibility="Collapsed"
                              Style="{StaticResource DarkTextBox}"
                              TextChanged="ApiKeyTextBox_TextChanged" />
@@ -275,7 +279,6 @@
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
                     <TextBox Grid.Column="0"
-                             Height="30"
                              Style="{StaticResource DarkTextBox}"
                              Text="{Binding OutputFolder, UpdateSourceTrigger=LostFocus}" />
                     <Button Grid.Column="2"
@@ -296,7 +299,6 @@
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
                     <TextBox Grid.Column="0"
-                             Height="30"
                              Style="{StaticResource DarkTextBox}"
                              Text="{Binding PromptLibraryFolder, UpdateSourceTrigger=LostFocus}" />
                     <Button Grid.Column="2"
