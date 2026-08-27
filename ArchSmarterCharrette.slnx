@@ -9,6 +9,7 @@
     <BuildType Name="Release R26" />
     <BuildType Name="Release R27" />
   </Configurations>
+  <Folder Name="/PromptLibraries/" />
   <Project Path="ArchSmarterCharrette.VideoTool/ArchSmarterCharrette.VideoTool.csproj">
     <BuildType Solution="Release R25|*" Project="Release" />
     <BuildType Solution="Release R26|*" Project="Release" />
